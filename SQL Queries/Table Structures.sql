@@ -45,7 +45,7 @@ CREATE TABLE FirstLogin
     rollNumber INTEGER PRIMARY KEY,
     accessed   BOOLEAN,
 
-    FOREIGN KEY (rollNumber) REFERENCES ProfileStatic (rollNumber)
+    FOREIGN KEY (rollNumber) REFERENCES ProfileStatic (rollNumber) ON DELETE CASCADE
 );
 
 CREATE TABLE Accomplishments
@@ -125,7 +125,7 @@ CREATE TABLE Stories
     datePosted DATETIME,
     body       TEXT,
 
-    FOREIGN KEY (rollNumber) REFERENCES ProfileStatic (rollNumber),
+    FOREIGN KEY (rollNumber) REFERENCES ProfileStatic (rollNumber) ON DELETE CASCADE,
     PRIMARY KEY (rollNumber, title)
 
 );
@@ -136,7 +136,7 @@ CREATE TABLE Ideas
     title       VARCHAR(250),
     datePosted  DATETIME,
     description TEXT,
-    FOREIGN KEY (rollNumber) REFERENCES ProfileStatic (rollNumber),
+    FOREIGN KEY (rollNumber) REFERENCES ProfileStatic (rollNumber) ON DELETE CASCADE,
     PRIMARY KEY (rollNumber, title)
 )
 
