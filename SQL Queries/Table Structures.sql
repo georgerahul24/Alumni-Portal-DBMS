@@ -10,7 +10,7 @@ CREATE TABLE ProfileStatic
     primaryEmail          VARCHAR(100),
     showEmail             BOOLEAN,
     CONSTRAINT instituteEmailConstraint CHECK (instituteEmail like '%@iiitg.ac.in'),
-    CONSTRAINT primaryEmailConstraint CHECK (primaryEmail like '%@iiitg.ac.in'),
+    CONSTRAINT primaryEmailConstraint CHECK (primaryEmail like '%@%'),
 
     /* Phone Numbers */
     primaryPhoneNumber    INTEGER,
@@ -112,7 +112,7 @@ CREATE TABLE JobProfile
     endDate     DATE,
 
     FOREIGN KEY (rollNumber) REFERENCES ProfileStatic (rollNumber) ON DELETE CASCADE,
-    FOREIGN KEY (companyName) REFERENCES Institutes (name),
+    FOREIGN KEY (companyName) REFERENCES Companies (name),
     PRIMARY KEY (rollNumber, companyName, startDate)
 
 
