@@ -1,15 +1,18 @@
 from django.contrib.auth.models import User
 import mysql.connector
 
-connection = mysql.connector.connect(user='gr', passwd='password', host='127.0.0.1', database='DocumentVerification',
-                                     autocommit=True) #Autocommit is true so that the connection gets updated with the latest data always
+from AlumniPortal.credentialManager import CredentialManager as cm
+
+connection = mysql.connector.connect(user=cm.user, password=cm.password, host=cm.host, database=cm.database,
+                                     autocommit=True)
+
 
 
 class loginBackend():
     def authenticate(self, request, username=None, password=None, **kwargs):
         with  connection.cursor() as cursor:
             if username is not None and password is not None:
-                cursor.execute("SELECT Password,RollNumber FROM Student WHERE Email = %s", (username,))
+                cursor.execute("SELECT Password,RollNumber FROM profileStatic WHERE instituteEmail = %s", (username,))
                 records = cursor.fetchall()
                 print(records, password)
                 if len(records) == 0:

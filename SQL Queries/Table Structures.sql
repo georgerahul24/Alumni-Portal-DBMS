@@ -5,6 +5,7 @@ USE AlumniPortal;
 CREATE TABLE ProfileStatic
 (
     rollNumber            INTEGER PRIMARY KEY,
+    name                  VARCHAR(100) NOT NULL,
 
     /* Email IDs */
     instituteEmail        VARCHAR(100) NOT NULL,
