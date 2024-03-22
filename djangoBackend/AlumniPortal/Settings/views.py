@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.generic import View
-from .forms import SignupForm, AboutMeForm
+from .forms import AboutMeForm, SocialMediaForm, ProfileDetailsForm, PasswordForm
 import mysql.connector
 from AlumniPortal.credentialManager import CredentialManager as cm
 
@@ -44,9 +44,97 @@ class AboutMeView(View):
 
                 rollNumber = user.username
                 with connection.cursor() as cursor:
-                    cursor.execute(f"UPDATE  ProfileStatic SET permanentCity = '{permanentCity}' WHERE rollNumber = {rollNumber};")
-                    cursor.execute(f"UPDATE  ProfileStatic SET permanentState = '{permanentState}' WHERE rollNumber = {rollNumber};")
-                    cursor.execute(f"UPDATE  ProfileStatic SET permanentCountry = '{permanentCountry}' WHERE rollNumber = {rollNumber};")
+                    cursor.execute(
+                        f"UPDATE  ProfileStatic SET permanentCity = '{permanentCity}' WHERE rollNumber = {rollNumber};")
+                    cursor.execute(
+                        f"UPDATE  ProfileStatic SET permanentState = '{permanentState}' WHERE rollNumber = {rollNumber};")
+                    cursor.execute(
+                        f"UPDATE  ProfileStatic SET permanentCountry = '{permanentCountry}' WHERE rollNumber = {rollNumber};")
+                    connection.commit()
+                    return redirect("yourProfile")
+
+            else:
+                print(form.errors)
+                return redirect("settings")
+        else:
+            return redirect("login")
+
+
+class SocialMediaView(View):
+    def post(self, request):
+        if request.user.is_authenticated:
+            user = request.user
+            form = SocialMediaForm(request.POST)
+            if form.is_valid():
+                linkedIn = form.cleaned_data['linkedin']
+                github = form.cleaned_data['github']
+                twitter = form.cleaned_data['twitter']
+
+                rollNumber = user.username
+                with connection.cursor() as cursor:
+                    cursor.execute(
+                        f"UPDATE  ProfileStatic SET linkedin = '{linkedIn}' WHERE rollNumber = {rollNumber};")
+                    cursor.execute(
+                        f"UPDATE  ProfileStatic SET github = '{github}' WHERE rollNumber = {rollNumber};")
+                    cursor.execute(
+                        f"UPDATE  ProfileStatic SET twitter = '{twitter}' WHERE rollNumber = {rollNumber};")
+                    connection.commit()
+                    return redirect("yourProfile")
+
+            else:
+                print(form.errors)
+                return redirect("settings")
+        else:
+            return redirect("login")
+
+
+class PasswordView(View):
+    def post(self, request):
+        if request.user.is_authenticated:
+            user = request.user
+            form = PasswordForm(request.POST)
+            if form.is_valid():
+                password = form.cleaned_data['password']
+
+                rollNumber = user.username
+                with connection.cursor() as cursor:
+                    cursor.execute(
+                        f"UPDATE  ProfileStatic SET Password = '{password}' WHERE rollNumber = {rollNumber};")
+                    connection.commit()
+                    return redirect("yourProfile")
+
+            else:
+                print(form.errors)
+                return redirect("settings")
+        else:
+            return redirect("login")
+
+
+class ProfileView(View):
+    def post(self, request):
+        if request.user.is_authenticated:
+            user = request.user
+            form = ProfileDetailsForm(request.POST)
+            if form.is_valid():
+                primaryEmail = form.cleaned_data['primaryEmail']
+                primaryPhoneNumber = form.cleaned_data['primaryPhone']
+                secondaryPhoneNumber = form.cleaned_data['secondaryPhone']
+                showPhone = form.cleaned_data['showPhone']
+                showEmail = form.cleaned_data['showEmail']
+
+                rollNumber = user.username
+                with connection.cursor() as cursor:
+                    cursor.execute(
+                        f"UPDATE  ProfileStatic SET primaryEmail = '{primaryEmail}' WHERE rollNumber = {rollNumber};")
+                    cursor.execute(
+                        f"UPDATE  ProfileStatic SET primaryPhoneNumber = '{primaryPhoneNumber}' WHERE rollNumber = {rollNumber};")
+                    cursor.execute(
+                        f"UPDATE  ProfileStatic SET secondaryPhoneNumber = '{secondaryPhoneNumber}' WHERE rollNumber = {rollNumber};")
+                    cursor.execute(
+                        f"UPDATE  ProfileStatic SET showEmail = '{1 if showEmail else 0}' WHERE rollNumber = {rollNumber};")
+                    cursor.execute(
+                        f"UPDATE  ProfileStatic SET showPhoneNumber = '{1 if showPhone else 0}' WHERE rollNumber = {rollNumber};")
+
                     connection.commit()
                     return redirect("yourProfile")
 

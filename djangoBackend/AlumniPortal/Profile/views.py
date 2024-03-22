@@ -18,7 +18,7 @@ class YourProfileView(View):
             user = request.user
             with connection.cursor() as cursor:
                 cursor.execute(
-                    "SELECT name,rollNumber,DOB,instituteEmail,primaryEmail,primaryPhoneNumber,secondaryPhoneNumber,degree,graduationYear,department,permanentCity,permanentState,permanentCountry FROM profileStatic where rollNumber = %s",
+                    "SELECT name,rollNumber,DOB,instituteEmail,primaryEmail,primaryPhoneNumber,secondaryPhoneNumber,degree,graduationYear,department,permanentCity,permanentState,permanentCountry,linkedin,github,twitter FROM profileStatic where rollNumber = %s",
                     (user.username,))
                 row = cursor.fetchall()[0]
                 print(row)
@@ -34,5 +34,8 @@ class YourProfileView(View):
                            "permanentCity": row[10],
                            "permanentState": row[11],
                            "permanentCountry": row[12],
+                           "linkedin": row[13],
+                           "github": row[14],
+                           "twitter": row[15],
                            }
                 return render(request, 'yourProfileTemplate.html', context=context)

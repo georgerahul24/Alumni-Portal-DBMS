@@ -89,7 +89,7 @@
                                         <div class="d-xl-flex justify-content-xl-center"><button class="btn btn-primary" type="submit">Update</button></div>
                                     </div>
                                 </form>
-                                <form id="socialMediaForm" method="post" action="socialmedia">
+                                <form id="socialMediaForm" method="post" action="/settings/socialmedia/">
 {%csrf_token%}
                                     <div class="col-11 content-box" id="socialMedia">
                                         <h1 style="font-size: 25px;">Social Media</h1>
@@ -107,11 +107,11 @@
                                         <div class="d-xl-flex justify-content-xl-center"><button class="btn btn-primary" type="submit">Update</button></div>
                                     </div>
                                 </form>
-                                <form id="passwordForm" method="POST" action="password">
+                                <form id="passwordForm" method="POST" action="/settings/password/">
 {%csrf_token%}
                                     <div class="col-11 content-box" id="passwordColumn" method="post" href="password">
                                         <h1 style="font-size: 25px;">Password</h1>
-                                        <div class="d-xl-flex justify-content-xl-center"><input class="form-control" type="text" placeholder="Password" style="font-family: 'Source Sans Pro', sans-serif;text-align: center;background: #252744;color: var(--light);border-color: rgb(239,239,239);border-radius: 6%;box-shadow: inset 0px 0px 7px 0px rgb(211,198,198);"></div>
+                                        <div class="d-xl-flex justify-content-xl-center"><input class="form-control" type="text" id="id_password" placeholder="Password" style="font-family: 'Source Sans Pro', sans-serif;text-align: center;background: #252744;color: var(--light);border-color: rgb(239,239,239);border-radius: 6%;box-shadow: inset 0px 0px 7px 0px rgb(211,198,198);" name="password"></div>
                                         <div class="d-xl-flex justify-content-xl-center"><button class="btn btn-primary" type="submit">Update</button></div>
                                     </div>
                                 </form>
@@ -135,7 +135,7 @@
                         <div class="row">
                             <div class="col-11 content-box" id="profileDetails">
                                 <h1 style="font-size: 25px;">Profile Details</h1>
-                                <form method="post" action="profiledetails">
+                                <form method="post" action="/settings/profiledetails/">
 {%csrf_token%}
                                     <div class="table-responsive">
                                         <table class="table table-borderless table-sm">
@@ -153,7 +153,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>Show Email</td>
-                                                    <td id="id_showEmail" name="showEmail" required=""><input type="checkbox" checked="" style="margin: 10px;height: 14px;"></td>
+                                                    <td required=""><input type="checkbox" id="id_showEmail" checked="" style="margin: 10px;height: 14px;" name="showEmail"></td>
                                                 </tr>
                                                 <tr>
                                                     <td><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" style="font-size: 34px;">
@@ -168,7 +168,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>Show Phone Number</td>
-                                                    <td><input type="checkbox" id="id_showPhone" checked="" style="margin: 10px;height: 14px;" required=""></td>
+                                                    <td><input type="checkbox" id="id_showPhone" checked="" style="margin: 10px;height: 14px;" required="" name="showPhone"></td>
                                                 </tr>
                                             </tbody>
                                         </table>

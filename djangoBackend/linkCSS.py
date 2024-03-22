@@ -1,7 +1,6 @@
 import re
 
-filename = input("Enter a filename: ")
-
+filename = "/Users/georgerahul/Desktop/Alumni-Portal-DBMS/djangoBackend/AlumniPortal/Settings/templates/SignUp.html"
 string = "{% load static %}\n"
 
 with open(filename, "r") as f:
