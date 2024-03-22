@@ -11,6 +11,7 @@ with open(filename, "r") as f:
         else:
             string += line
 
+
 with open(filename, "w") as f:
     f.write(string)
 
@@ -28,11 +29,23 @@ with open(filename, "r") as f:
 with open(filename, "w") as f:
     f.write(string)
 
-string=""
+string = ""
 with open(filename, "r") as f:
     for line in f:
         if re.search("<form.*", line):
             string += line + "{%csrf_token%}\n"
+        else:
+            string += line
+
+with open(filename, "w") as f:
+    f.write(string)
+
+string = ""
+with open(filename, "r") as f:
+    for line in f:
+        match = re.search("assets/.*\.js", line)
+        if match:
+            string += "<script src=\"{% static '" + match.group(0) + "' %}\"></script>\n"
         else:
             string += line
 
