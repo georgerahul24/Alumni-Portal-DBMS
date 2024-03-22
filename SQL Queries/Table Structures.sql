@@ -23,12 +23,16 @@ CREATE TABLE ProfileStatic
     graduationYear        INTEGER      NOT NULL,
     degree                VARCHAR(100) NOT NULL,
     department            VARCHAR(50)  NOT NULL,
-
     DOB                   DATE         NOT NULL,
 
     /* Addresses */
-    permanentAddress      VARCHAR(100) NOT NULL,
-    correspondenceAddress VARCHAR(100)  DEFAULT NULL,
+    permanentCity         VARCHAR(250) NOT NULL,
+    permanentState        VARCHAR(250) NOT NULL,
+    permanentCountry      VARCHAR(250) NOT NULL,
+
+    correspondenceCity    VARCHAR(250)  DEFAULT NULL,
+    correspondenceState   VARCHAR(250)  DEFAULT NULL,
+    correspondenceCountry VARCHAR(250)  DEFAULT NULL,
     showAddress           BOOLEAN       DEFAULT TRUE,
 
     /* Social Media Links */

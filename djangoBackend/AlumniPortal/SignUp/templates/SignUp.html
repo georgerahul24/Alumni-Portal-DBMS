@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>DBMS Second Mockup</title>
+<link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&amp;display=swap">
+<link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-all.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/fonts/ionicons.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/fonts/material-icons.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/fonts/fontawesome5-overrides.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/Article-Clean.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/sidebar.css' %}">
+</head>
+
+<body style="background: #151728;color: #ccc8db;font-family: 'Source Sans Pro', sans-serif;">
+    <ul class="nav flex-column shadow d-flex sidebar mobile-hid" style="background: #121325;font-family: 'Source Sans Pro', sans-serif;">
+        <li class="nav-item logo-holder" style="color: rgb(0,0,0);font-family: 'Source Sans Pro', sans-serif;">
+            <div class="text-center text-white logo py-4 mx-4"><a class="text-white text-decoration-none" id="title" href="#" style="font-family: 'DM Sans', sans-serif;font-size: 15px;"><strong>Alumni Portal</strong></a><a class="text-white float-right" id="sidebarToggleHolder" href="#"><i class="fas fa-bars" id="sidebarToggle"></i></a></div>
+        </li>
+        <li class="nav-item"><a class="nav-link active text-center text-white py-1 px-0" href="#" style="background: rgba(91,114,214,0);font-family: 'Source Sans Pro', sans-serif;"><span class="text-nowrap mx-2" style="font-size: 15px;"><strong>Menu</strong></span></a></li>
+        <li class="nav-item"><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#"><i class="material-icons mx-3">home</i><span class="text-nowrap mx-2">Home</span></a></li>
+        <li class="nav-item"><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#" style="font-family: 'Source Sans Pro', sans-serif;"><i class="material-icons mx-3" style="font-size: 20px;">photo</i><span class="text-nowrap mx-2">Gallery</span></a></li>
+        <li class="nav-item"><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#" style="font-family: 'Source Sans Pro', sans-serif;"><i class="material-icons mx-3" style="font-size: 20px;">search</i><span class="text-nowrap mx-2">Search</span></a><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#" style="font-family: 'Source Sans Pro', sans-serif;"><i class="material-icons mx-3" style="font-size: 20px;">person</i><span class="text-nowrap mx-2">Account</span></a></li>
+        <li class="nav-item"></li>
+        <li class="nav-item"><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" class="mx-3" style="font-size: 20px;">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"></path>
+                </svg><i class="fa fa-caret-right d-none position-absolute" href="&quot;{% url 'logout' %}&quot;"></i><span class="text-nowrap mx-2">Log out</span></a><a class="nav-link text-left text-white py-1 px-0" href="#" style="color: #9c9cab;"><i class="fa fa-caret-right d-none position-absolute"></i><span class="text-nowrap mx-2" style="color: #9c9cab;">&nbsp;&nbsp;</span></a><a class="nav-link text-center text-white py-1 px-0" href="#" style="background: rgba(91,114,214,0);font-family: 'Source Sans Pro', sans-serif;"><span class="text-nowrap mx-2" style="font-size: 15px;"><strong>Other Sections</strong></span></a><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" class="mx-3" style="font-size: 20px;">
+                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                    <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.42 0 2.13.54 2.39 1.4.12.4.45.7.87.7h.3c.66 0 1.13-.65.9-1.27-.42-1.18-1.4-2.16-2.96-2.54V4.5c0-.83-.67-1.5-1.5-1.5S10 3.67 10 4.5v.66c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-1.65 0-2.5-.59-2.83-1.43-.15-.39-.49-.67-.9-.67h-.28c-.67 0-1.14.68-.89 1.3.57 1.39 1.9 2.21 3.4 2.53v.67c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-.65c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"></path>
+                </svg><i class="fa fa-caret-right d-none position-absolute"></i><span class="text-nowrap mx-2">Donate</span></a><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" class="mx-3" style="font-size: 20px;">
+                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                    <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 4h2v5l-1-.75L9 9V4zm9 16H6V4h1v9l3-2.25L13 13V4h5v16z"></path>
+                </svg><i class="fa fa-caret-right d-none position-absolute"></i><span class="text-nowrap mx-2">Story Corner</span></a><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" class="mx-3" style="font-size: 20px;">
+                    <g>
+                        <rect fill="none" height="24" width="24"></rect>
+                    </g>
+                    <g>
+                        <g>
+                            <g>
+                                <path d="M9,21c0,0.55,0.45,1,1,1h4c0.55,0,1-0.45,1-1v-1H9V21z M12,2C8.14,2,5,5.14,5,9c0,2.38,1.19,4.47,3,5.74V17 c0,0.55,0.45,1,1,1h6c0.55,0,1-0.45,1-1v-2.26c1.81-1.27,3-3.36,3-5.74C19,5.14,15.86,2,12,2z M14,13.7V16h-4v-2.3 C8.48,12.63,7,11.53,7,9c0-2.76,2.24-5,5-5s5,2.24,5,5C17,11.49,15.49,12.65,14,13.7z"></path>
+                            </g>
+                        </g>
+                    </g>
+                </svg><i class="fa fa-caret-right d-none position-absolute"></i><span class="text-nowrap mx-2">Idea Corner</span></a></li>
+    </ul>
+    <div class="container article-clean" style="background: #242744;color: rgb(255,255,255);">
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center intro">
+                    <section></section><img class="rounded-circle" src="{% static 'assets/img/desk.jpg' %}" width="150" height="150" style="height: 200;">
+                    <h1 class="text-center" style="color: rgb(255,255,255);"><input class="form-control-lg" type="text" placeholder="Name" autofocus="" autocomplete="on" style="background: #252744;border-radius: 6%;font-family: 'Source Sans Pro', sans-serif;border-color: rgb(239,239,239);box-shadow: inset 0px 0px 7px 0px rgb(211,198,198);text-align: center;color: var(--light);"></h1>
+                    <p class="text-center"><span class="by" style="color: rgb(255,255,255);"><input type="text" placeholder="Roll Number" autofocus="" autocomplete="on" inputmode="numeric" style="font-family: 'Source Sans Pro', sans-serif;text-align: center;background: #252744;border-color: rgb(239,239,239);border-radius: 6%;box-shadow: inset 0px 0px 7px 0px rgb(211,198,198);color: var(--light);"></span> <span class="date" style="color: rgb(255,255,255);"><input type="text" placeholder="DOB" autofocus="" autocomplete="on" style="font-family: 'Source Sans Pro', sans-serif;text-align: center;background: #252744;border-color: rgb(239,239,239);border-radius: 6%;box-shadow: inset 0px 0px 7px 0px rgb(211,198,198);color: var(--light);"></span><span class="date" style="color: rgb(255,255,255);"><input type="text" placeholder="Graduation Year" style="font-family: 'Source Sans Pro', sans-serif;text-align: center;background: #252744;border-color: rgb(239,239,239);border-radius: 6%;box-shadow: inset 0px 0px 7px 0px rgb(211,198,198);color: var(--light);"><input type="text" placeholder="Degree" style="font-family: 'Source Sans Pro', sans-serif;text-align: center;background: #252744;border-color: rgb(239,239,239);border-radius: 6%;box-shadow: inset 0px 0px 7px 0px rgb(211,198,198);color: var(--light);"><input type="text" placeholder="Department" style="font-family: 'Source Sans Pro', sans-serif;text-align: center;background: #252744;border-color: rgb(239,239,239);border-radius: 6%;box-shadow: inset 0px 0px 7px 0px rgb(211,198,198);color: var(--light);"></span></p>
+                </div>
+                <div class="text">
+                    <figure></figure>
+                </div>
+                <div class="d-md-flex d-lg-flex flex-row justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-start justify-content-xl-center align-items-xl-start" id="profileBoxes">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 d-lg-flex d-xl-flex justify-content-lg-start" id="columnLeft">
+                        <div class="row">
+                            <div class="col-11 content-box" id="aboutMe">
+                                <h1 style="font-size: 25px;">About Me</h1>
+                                <div class="row">
+                                    <div class="col-lg-12 d-lg-flex justify-content-lg-start">
+                                        <p><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" style="font-size: 20px;">
+                                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M12 3L4 9v12h5v-7h6v7h5V9z"></path>
+                                            </svg>&nbsp;Lives&nbsp; in <input type="text" placeholder="City" style="font-family: 'Source Sans Pro', sans-serif;text-align: center;background: #252744;border-color: rgb(239,239,239);border-radius: 6%;box-shadow: inset 0px 0px 7px 0px rgb(211,198,198);color: var(--light);">,<input type="text" placeholder="State" style="font-family: 'Source Sans Pro', sans-serif;text-align: center;background: #252744;border-color: rgb(239,239,239);border-radius: 6%;box-shadow: inset 0px 0px 7px 0px rgb(211,198,198);color: var(--light);">,<input type="text" placeholder="Country" style="font-family: 'Source Sans Pro', sans-serif;text-align: center;background: #252744;border-color: rgb(239,239,239);border-radius: 6%;box-shadow: inset 0px 0px 7px 0px rgb(211,198,198);color: var(--light);"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col d-lg-flex justify-content-lg-start align-items-lg-center">
+                                        <p><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" style="font-size: 20px;">
+                                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"></path>
+                                            </svg>&nbsp;Works currently in IIIT Guwahati, Guwahati, Assam</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-11 content-box" id="aboutMe-2">
+                                <h1 style="font-size: 25px;">Social Media</h1>
+                                <div class="row">
+                                    <div class="col-lg-12 d-lg-flex justify-content-lg-start">
+                                        <p class="d-xl-flex align-items-xl-center"><i class="icon ion-social-linkedin" style="font-size: 26px;"></i>&nbsp;<input type="text" placeholder="Linked In" style="font-family: 'Source Sans Pro', sans-serif;text-align: center;background: #252744;border-color: rgb(239,239,239);border-radius: 6%;box-shadow: inset 0px 0px 7px 0px rgb(211,198,198);color: var(--light);"></p>
+                                    </div>
+                                    <div class="col-lg-12 d-lg-flex justify-content-lg-start">
+                                        <p class="d-xl-flex align-items-xl-center"><i class="icon ion-social-twitter" style="font-size: 26px;"></i>&nbsp;<input type="text" placeholder="Twitter" style="font-family: 'Source Sans Pro', sans-serif;text-align: center;background: #252744;border-color: rgb(239,239,239);border-radius: 6%;box-shadow: inset 0px 0px 7px 0px rgb(211,198,198);color: var(--light);"></p>
+                                    </div>
+                                    <div class="col-lg-12 d-lg-flex justify-content-lg-start">
+                                        <p class="d-xl-flex align-items-xl-center"><i class="icon ion-social-github" style="font-size: 26px;"></i>&nbsp;<input type="text" placeholder="Github" style="font-family: 'Source Sans Pro', sans-serif;text-align: center;background: #252744;border-color: rgb(239,239,239);border-radius: 6%;box-shadow: inset 0px 0px 7px 0px rgb(211,198,198);color: var(--light);"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-11 content-box" id="aboutMe-1">
+                                <h1 style="font-size: 25px;">Password</h1><input type="text" placeholder="Password" style="font-family: 'Source Sans Pro', sans-serif;text-align: center;background: #252744;color: var(--light);border-color: rgb(239,239,239);border-radius: 6%;box-shadow: inset 0px 0px 7px 0px rgb(211,198,198);">
+                            </div>
+                            <div class="col-11 content-box" id="aboutMe-3">
+                                <h1 style="font-size: 25px;">Interactive Corner</h1>
+                                <div class="row">
+                                    <div class="col-lg-12 d-lg-flex justify-content-lg-start">
+                                        <p>Stories by George Rahul</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col d-lg-flex justify-content-lg-start align-items-lg-center">
+                                        <p>Ideas by George Rahul</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7" id="columnRight">
+                        <div class="row">
+                            <div class="col-11 content-box" id="profileDetails">
+                                <h1 style="font-size: 25px;">Profile Details</h1>
+                                <div class="table-responsive">
+                                    <table class="table table-borderless table-sm">
+                                        <tbody style="color: rgb(255,255,255);">
+                                            <tr>
+                                                <td><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" style="font-size: 29px;">
+                                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
+                                                    </svg></td>
+                                                <td><input type="text" placeholder="Institute Email ID" style="width: 180.5px;font-family: 'Source Sans Pro', sans-serif;text-align: center;background: #252744;border-color: rgb(239,239,239);border-radius: 6%;box-shadow: inset 0px 0px 7px 0px rgb(211,198,198);color: var(--light);" autofocus="" autocomplete="on" inputmode="email"></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td><input type="text" placeholder="Primary Email ID" style="width: 181.5px;font-family: 'Source Sans Pro', sans-serif;text-align: center;background: #252744;border-color: rgb(239,239,239);border-radius: 6%;box-shadow: inset 0px 0px 7px 0px rgb(211,198,198);color: var(--light);" autofocus="" autocomplete="on" inputmode="email"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Show Email</td>
+                                                <td><input type="checkbox" checked="" style="margin: 10px;height: 14px;"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" style="font-size: 34px;">
+                                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path>
+                                                    </svg></td>
+                                                <td><input type="text" placeholder="Primary Phone Number" style="width: 182.5px;font-family: 'Source Sans Pro', sans-serif;text-align: center;background: #252744;border-color: rgb(239,239,239);border-radius: 6%;box-shadow: inset 0px 0px 7px 0px rgb(211,198,198);color: var(--light);" autocomplete="on" inputmode="tel">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td><input type="text" placeholder="Secondary Phone Number" style="width: 183.5px;font-family: 'Source Sans Pro', sans-serif;text-align: center;background: #252744;border-color: rgb(239,239,239);border-radius: 6%;box-shadow: inset 0px 0px 7px 0px rgb(211,198,198);color: var(--light);" autocomplete="on" inputmode="tel"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Show Phone Number</td>
+                                                <td><input type="checkbox" checked="" style="margin: 10px;height: 14px;"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-11 content-box" id="education">
+                                <h1 style="font-size: 25px;">Education</h1>
+                                <div id="educationContainer-1" class="detailsContainer">
+                                    <h1 class="degreeAndYear" style="font-size: 22px;">Devamatha CMI Public School</h1>
+                                    <h1 class="instituteName" style="font-size: 14px;">Class 12, 2020 - 2022</h1>
+                                    <p class="educationDescription">I did my class 12 here. me pass with 97% and all...very miuch topper I am dont worry</p>
+                                </div>
+                            </div>
+                            <div class="col-11 content-box" id="profileDetails-1">
+                                <h1 style="font-size: 25px;">Experience</h1>
+                                <div id="educationContainer" class="detailsContainer">
+                                    <h1 class="instituteName" style="font-size: 14px;">March 2023</h1>
+                                    <h1 class="degreeAndYear" style="font-size: 22px;">Programming Club Coordinator</h1>
+                                    <p class="educationDescription">I am the programming club coordinator of IIIT G. And i am the best at it</p>
+                                </div>
+                            </div>
+                            <div class="col-11 content-box" id="profileDetails-2">
+                                <h1 style="font-size: 25px;">Achievements</h1>
+                                <div id="educationContainer-2" class="detailsContainer">
+                                    <h1 class="instituteName" style="font-size: 14px;">Dec.&nbsp; 2022</h1>
+                                    <h1 class="degreeAndYear" style="font-size: 22px;">JEE Main</h1>
+                                    <p class="educationDescription">Jee mains kaise toh pass hogaya !!!!!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-md-flex justify-content-md-center align-items-md-center"><button class="btn btn-primary" type="button">Submit</button></div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/sidebar.js"></script>
+</body>
+
+</html>

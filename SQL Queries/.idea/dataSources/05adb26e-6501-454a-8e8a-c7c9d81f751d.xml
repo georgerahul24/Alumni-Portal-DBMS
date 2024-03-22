@@ -1063,7 +1063,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Charset>utf8mb4</Charset>
     </collation>
     <schema id="288" parent="1" name="AlumniPortal">
-      <LastIntrospectionLocalTimestamp>2024-03-15.04:02:30</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-03-22.04:12:25</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="289" parent="1" name="Assignment1">
@@ -1473,6 +1473,7 @@ startDate</ColNames>
     </column>
     <column id="376" parent="310" name="name">
       <DasType>varchar(100)|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
     <column id="377" parent="310" name="instituteEmail">
@@ -1523,81 +1524,99 @@ startDate</ColNames>
       <NotNull>1</NotNull>
       <Position>12</Position>
     </column>
-    <column id="387" parent="310" name="permanentAddress">
-      <DasType>varchar(100)|0s</DasType>
+    <column id="387" parent="310" name="permanentCity">
+      <DasType>varchar(250)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>13</Position>
     </column>
-    <column id="388" parent="310" name="correspondenceAddress">
-      <DasType>varchar(100)|0s</DasType>
+    <column id="388" parent="310" name="permanentState">
+      <DasType>varchar(250)|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>14</Position>
     </column>
-    <column id="389" parent="310" name="showAddress">
-      <DasType>tinyint(1)|0s</DasType>
-      <DefaultExpression>1</DefaultExpression>
+    <column id="389" parent="310" name="permanentCountry">
+      <DasType>varchar(250)|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>15</Position>
     </column>
-    <column id="390" parent="310" name="linkedin">
-      <DasType>varchar(1000)|0s</DasType>
+    <column id="390" parent="310" name="correspondenceCity">
+      <DasType>varchar(250)|0s</DasType>
       <Position>16</Position>
     </column>
-    <column id="391" parent="310" name="github">
-      <DasType>varchar(1000)|0s</DasType>
+    <column id="391" parent="310" name="correspondenceState">
+      <DasType>varchar(250)|0s</DasType>
       <Position>17</Position>
     </column>
-    <column id="392" parent="310" name="twitter">
-      <DasType>varchar(1000)|0s</DasType>
+    <column id="392" parent="310" name="correspondenceCountry">
+      <DasType>varchar(250)|0s</DasType>
       <Position>18</Position>
     </column>
-    <column id="393" parent="310" name="password">
-      <DasType>varchar(100)|0s</DasType>
-      <NotNull>1</NotNull>
+    <column id="393" parent="310" name="showAddress">
+      <DasType>tinyint(1)|0s</DasType>
+      <DefaultExpression>1</DefaultExpression>
       <Position>19</Position>
     </column>
-    <index id="394" parent="310" name="PRIMARY">
+    <column id="394" parent="310" name="linkedin">
+      <DasType>varchar(1000)|0s</DasType>
+      <Position>20</Position>
+    </column>
+    <column id="395" parent="310" name="github">
+      <DasType>varchar(1000)|0s</DasType>
+      <Position>21</Position>
+    </column>
+    <column id="396" parent="310" name="twitter">
+      <DasType>varchar(1000)|0s</DasType>
+      <Position>22</Position>
+    </column>
+    <column id="397" parent="310" name="password">
+      <DasType>varchar(100)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>23</Position>
+    </column>
+    <index id="398" parent="310" name="PRIMARY">
       <ColNames>rollNumber</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="395" parent="310" name="PRIMARY">
+    <key id="399" parent="310" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="396" parent="311" name="rollNumber">
+    <column id="400" parent="311" name="rollNumber">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="397" parent="311" name="title">
+    <column id="401" parent="311" name="title">
       <DasType>varchar(250)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="398" parent="311" name="datePosted">
+    <column id="402" parent="311" name="datePosted">
       <DasType>datetime|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="399" parent="311" name="body">
+    <column id="403" parent="311" name="body">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <foreign-key id="400" parent="311" name="stories_ibfk_1">
+    <foreign-key id="404" parent="311" name="stories_ibfk_1">
       <ColNames>rollNumber</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>rollNumber</RefColNames>
       <RefTableName>ProfileStatic</RefTableName>
       <RefTableParentName>alumniportal</RefTableParentName>
     </foreign-key>
-    <index id="401" parent="311" name="PRIMARY">
+    <index id="405" parent="311" name="PRIMARY">
       <ColNames>rollNumber
 title</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="402" parent="311" name="PRIMARY">
+    <key id="406" parent="311" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
