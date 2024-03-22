@@ -22,17 +22,11 @@ class SignupForm(forms.Form):
     permanentState = forms.CharField(max_length=100, required=True)
     permanentCountry = forms.CharField(max_length=100, required=True)
 
-    correspondenceCity = forms.CharField(max_length=100, required=False)
-    correspondenceState = forms.CharField(max_length=100, required=False)
-    correspondenceCountry = forms.CharField(max_length=100, required=False)
-    showAddress = forms.BooleanField(required=True)
-
     linkedin = forms.CharField(max_length=1000, required=True)
     twitter = forms.CharField(max_length=1000, required=True)
     github = forms.CharField(max_length=1000, required=True)
 
     password = forms.CharField(max_length=100, required=True)
-
 
 
 

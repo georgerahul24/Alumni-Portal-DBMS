@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 class SignUpView(View):
     def get(self, request):
-
+        print(SignupForm())
         return render(request, "SignUp.html")
 
     def post(self, request):
