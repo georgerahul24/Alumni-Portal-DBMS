@@ -28,3 +28,14 @@ with open(filename, "r") as f:
 
 with open(filename, "w") as f:
     f.write(string)
+
+string=""
+with open(filename, "r") as f:
+    for line in f:
+        if re.search("<form.*", line):
+            string += line + "{%csrf_token%}\n"
+        else:
+            string += line
+
+with open(filename, "w") as f:
+    f.write(string)
