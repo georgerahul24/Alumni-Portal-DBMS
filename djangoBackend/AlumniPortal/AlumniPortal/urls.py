@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('Login.urls')),
     path('yourProfile/', include('Profile.urls')),
     path('settings/', include('Settings.urls')),
+    path('search/', include('SearchProfile.urls'))
 ]
