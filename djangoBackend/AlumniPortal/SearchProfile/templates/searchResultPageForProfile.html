@@ -20,121 +20,73 @@
 </head>
 
 <body style="background: #151728;color: #ccc8db;font-family: 'Source Sans Pro', sans-serif;">
-<ul class="nav flex-column shadow d-flex sidebar mobile-hid"
-    style="background: #121325;font-family: 'Source Sans Pro', sans-serif;height: 790px;">
-    <li class="nav-item logo-holder" style="color: rgb(0,0,0);font-family: 'Source Sans Pro', sans-serif;">
-        <div class="text-center text-white logo py-4 mx-4"><a class="text-white text-decoration-none" id="title"
-                                                              href="#"
-                                                              style="font-family: 'DM Sans', sans-serif;font-size: 15px;"><strong>Alumni
-            Portal</strong></a><a class="text-white float-right" id="sidebarToggleHolder" href="#"><i
-                class="fas fa-bars" id="sidebarToggle"></i></a></div>
-    </li>
-    <li class="nav-item"><a class="nav-link active text-center text-white py-1 px-0" href="#"
-                            style="background: rgba(91,114,214,0);font-family: 'Source Sans Pro', sans-serif;"><span
-            class="text-nowrap mx-2" style="font-size: 15px;"><strong>Menu</strong></span></a></li>
-    <li class="nav-item"><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#"><i
-            class="material-icons mx-3">home</i><span class="text-nowrap mx-2">Home</span></a></li>
-    <li class="nav-item"><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#"
-                            style="font-family: 'Source Sans Pro', sans-serif;"><i class="material-icons mx-3"
-                                                                                   style="font-size: 20px;">photo</i><span
-            class="text-nowrap mx-2">Gallery</span></a></li>
-    <li class="nav-item"><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0"
-                            href="{% url 'searchbar' %}" style="font-family: 'Source Sans Pro', sans-serif;"><i
-            class="material-icons mx-3" style="font-size: 20px;">search</i><span class="text-nowrap mx-2">Search</span></a><a
-            class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="{% url 'yourProfile' %}"
-            style="font-family: 'Source Sans Pro', sans-serif;"><i class="material-icons mx-3" style="font-size: 20px;">person</i><span
-            class="text-nowrap mx-2">Account</span></a><a
-            class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="{% url 'settings' %}"
-            style="font-family: 'Source Sans Pro', sans-serif;"><i class="material-icons mx-3" style="font-size: 20px;">settings</i><span
-            class="text-nowrap mx-2">Settings</span></a><a
-            class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="{% url 'logout' %}">
-        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor"
-             class="mx-3" style="font-size: 20px;">
-            <path d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"></path>
-        </svg>
-        <i class="fa fa-caret-right d-none position-absolute" href="&quot;{% url 'logout' %}&quot;"></i><span
-            class="text-nowrap mx-2">Log out</span></a></li>
-    <li class="nav-item" id="otherSections"><a class="nav-link text-center text-white py-1 px-0" href="#"
-                                               style="background: rgba(91,114,214,0);font-family: 'Source Sans Pro', sans-serif;"><span
-            class="text-nowrap mx-2" style="font-size: 15px;"><strong>Other Sections</strong></span></a><a
-            class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#">
-        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor"
-             class="mx-3" style="font-size: 20px;">
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.42 0 2.13.54 2.39 1.4.12.4.45.7.87.7h.3c.66 0 1.13-.65.9-1.27-.42-1.18-1.4-2.16-2.96-2.54V4.5c0-.83-.67-1.5-1.5-1.5S10 3.67 10 4.5v.66c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-1.65 0-2.5-.59-2.83-1.43-.15-.39-.49-.67-.9-.67h-.28c-.67 0-1.14.68-.89 1.3.57 1.39 1.9 2.21 3.4 2.53v.67c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-.65c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"></path>
-        </svg>
-        <i class="fa fa-caret-right d-none position-absolute"></i><span class="text-nowrap mx-2">Donate</span></a><a
-            class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#">
-        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor"
-             class="mx-3" style="font-size: 20px;">
-            <path d="M0 0h24v24H0V0z" fill="none"></path>
-            <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 4h2v5l-1-.75L9 9V4zm9 16H6V4h1v9l3-2.25L13 13V4h5v16z"></path>
-        </svg>
-        <i class="fa fa-caret-right d-none position-absolute"></i><span class="text-nowrap mx-2">Story Corner</span></a><a
-            class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#">
-        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="1em" viewBox="0 0 24 24"
-             width="1em" fill="currentColor" class="mx-3" style="font-size: 20px;">
-            <g>
-                <rect fill="none" height="24" width="24"></rect>
-            </g>
-            <g>
-                <g>
+    <ul class="nav flex-column shadow d-flex sidebar mobile-hid" style="background: #121325;font-family: 'Source Sans Pro', sans-serif;height: 790px;">
+        <li class="nav-item logo-holder" style="color: rgb(0,0,0);font-family: 'Source Sans Pro', sans-serif;">
+            <div class="text-center text-white logo py-4 mx-4"><a class="text-white text-decoration-none" id="title" href="#" style="font-family: 'DM Sans', sans-serif;font-size: 15px;"><strong>Alumni Portal</strong></a><a class="text-white float-right" id="sidebarToggleHolder" href="#"><i class="fas fa-bars" id="sidebarToggle"></i></a></div>
+        </li>
+        <li class="nav-item"><a class="nav-link active text-center text-white py-1 px-0" href="#" style="background: rgba(91,114,214,0);font-family: 'Source Sans Pro', sans-serif;"><span class="text-nowrap mx-2" style="font-size: 15px;"><strong>Menu</strong></span></a></li>
+        <li class="nav-item"><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#"><i class="material-icons mx-3">home</i><span class="text-nowrap mx-2">Home</span></a></li>
+        <li class="nav-item"><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#" style="font-family: 'Source Sans Pro', sans-serif;"><i class="material-icons mx-3" style="font-size: 20px;">photo</i><span class="text-nowrap mx-2">Gallery</span></a></li>
+        <li class="nav-item"><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="{% url 'searchbar' %}" style="font-family: 'Source Sans Pro', sans-serif;"><i class="material-icons mx-3" style="font-size: 20px;">search</i><span class="text-nowrap mx-2">Search</span></a><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="{% url 'yourProfile' %}" style="font-family: 'Source Sans Pro', sans-serif;"><i class="material-icons mx-3" style="font-size: 20px;">person</i><span class="text-nowrap mx-2">Account</span></a><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="{% url 'settings' %}" style="font-family: 'Source Sans Pro', sans-serif;"><i class="material-icons mx-3" style="font-size: 20px;">settings</i><span class="text-nowrap mx-2">Settings</span></a><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="{% url 'logout' %}"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" class="mx-3" style="font-size: 20px;">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"></path>
+                </svg><i class="fa fa-caret-right d-none position-absolute" href="&quot;{% url 'logout' %}&quot;"></i><span class="text-nowrap mx-2">Log out</span></a></li>
+        <li class="nav-item" id="otherSections"><a class="nav-link text-center text-white py-1 px-0" href="#" style="background: rgba(91,114,214,0);font-family: 'Source Sans Pro', sans-serif;"><span class="text-nowrap mx-2" style="font-size: 15px;"><strong>Other Sections</strong></span></a><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" class="mx-3" style="font-size: 20px;">
+                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                    <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.42 0 2.13.54 2.39 1.4.12.4.45.7.87.7h.3c.66 0 1.13-.65.9-1.27-.42-1.18-1.4-2.16-2.96-2.54V4.5c0-.83-.67-1.5-1.5-1.5S10 3.67 10 4.5v.66c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-1.65 0-2.5-.59-2.83-1.43-.15-.39-.49-.67-.9-.67h-.28c-.67 0-1.14.68-.89 1.3.57 1.39 1.9 2.21 3.4 2.53v.67c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-.65c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"></path>
+                </svg><i class="fa fa-caret-right d-none position-absolute"></i><span class="text-nowrap mx-2">Donate</span></a><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" class="mx-3" style="font-size: 20px;">
+                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                    <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 4h2v5l-1-.75L9 9V4zm9 16H6V4h1v9l3-2.25L13 13V4h5v16z"></path>
+                </svg><i class="fa fa-caret-right d-none position-absolute"></i><span class="text-nowrap mx-2">Story Corner</span></a><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" class="mx-3" style="font-size: 20px;">
                     <g>
-                        <path d="M9,21c0,0.55,0.45,1,1,1h4c0.55,0,1-0.45,1-1v-1H9V21z M12,2C8.14,2,5,5.14,5,9c0,2.38,1.19,4.47,3,5.74V17 c0,0.55,0.45,1,1,1h6c0.55,0,1-0.45,1-1v-2.26c1.81-1.27,3-3.36,3-5.74C19,5.14,15.86,2,12,2z M14,13.7V16h-4v-2.3 C8.48,12.63,7,11.53,7,9c0-2.76,2.24-5,5-5s5,2.24,5,5C17,11.49,15.49,12.65,14,13.7z"></path>
+                        <rect fill="none" height="24" width="24"></rect>
                     </g>
-                </g>
-            </g>
-        </svg>
-        <i class="fa fa-caret-right d-none position-absolute"></i><span class="text-nowrap mx-2">Idea Corner</span></a>
-    </li>
-</ul>
-<div class="container d-flex d-xl-flex align-items-center align-items-xl-center pb-5 pt-5">
-    <div class="col-md-9 col-xl-8 ml-auto mr-auto">
-        <form method="post" action="{% url 'search_results' %}">
+                    <g>
+                        <g>
+                            <g>
+                                <path d="M9,21c0,0.55,0.45,1,1,1h4c0.55,0,1-0.45,1-1v-1H9V21z M12,2C8.14,2,5,5.14,5,9c0,2.38,1.19,4.47,3,5.74V17 c0,0.55,0.45,1,1,1h6c0.55,0,1-0.45,1-1v-2.26c1.81-1.27,3-3.36,3-5.74C19,5.14,15.86,2,12,2z M14,13.7V16h-4v-2.3 C8.48,12.63,7,11.53,7,9c0-2.76,2.24-5,5-5s5,2.24,5,5C17,11.49,15.49,12.65,14,13.7z"></path>
+                            </g>
+                        </g>
+                    </g>
+                </svg><i class="fa fa-caret-right d-none position-absolute"></i><span class="text-nowrap mx-2">Idea Corner</span></a></li>
+    </ul>
+    <div class="container d-flex d-xl-flex align-items-center align-items-xl-center pb-5 pt-5">
+        <div class="col-md-9 col-xl-8 ml-auto mr-auto">
+            <form method="post" action="{% url 'search_results' %}">
 {%csrf_token%}
-            <div class="align-items-center form-row">
-                <div class="form-group col-sm"><input class="form-control form-control pl-4 pr-4 rounded-pill"
-                                                      type="text" id="id_searchText" name="searchText"
-                                                      placeholder="Search..."></div>
-                <div class="form-group col-sm-auto text-right">
-                    <button class="btn btn-primary pl-4 pr-4 rounded-pill" type="submit"
-                            style="background: rgb(40,43,108);"><i class="fa fa-search"></i></button>
+                <div class="align-items-center form-row">
+                    <div class="form-group col-sm"><input class="form-control form-control pl-4 pr-4 rounded-pill" type="text" id="id_searchText" name="searchText" placeholder="Search..."></div>
+                    <div class="form-group col-sm-auto text-right"><button class="btn btn-primary pl-4 pr-4 rounded-pill" type="submit" style="background: rgb(40,43,108);"><i class="fa fa-search"></i></button></div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
-<div class="container" id="resultSection">
-    <div class="row">{% for result in resultRows %}
-        <div class="col d-sm-flex justify-content-sm-center align-items-sm-center profileResultDetails">
-            <div class="card d-sm-flex justify-content-sm-center align-items-sm-center"
-                 style="width: 18rem;border-top-left-radius: 20px;border-top-right-radius: 20px;border-bottom-right-radius: 20px;border-bottom-left-radius: 20px;box-shadow: 5px 5px 16px 2px rgba(0,0,0,0.25);margin: 14px;min-width: 280px;max-width: 300px;margin-bottom: 20px;">
-                <div style="width: 100%;height: 200px;background: url(&quot;{% static 'assets/img/karytonndev_background.jpg&quot;) center / contain;border-top-left-radius: 20px;border-top-right-radius: 20px;' %}"></div>
-                <div class="card-body d-flex flex-column align-items-xl-center" style="height: 262px;">
-                    <div class="row">
-                        <div class="col">
-                            <h3 style="color: var(--gray-dark);font-family: Lora, serif;">{{ result.name }}</h3>
+    <div class="container" id="resultSection">
+        <div class="row">{% for result in resultRows %}
+            <div class="col d-sm-flex justify-content-sm-center align-items-sm-center profileResultDetails">
+                <div class="card d-sm-flex justify-content-sm-center align-items-sm-center" style="width: 18rem;border-top-left-radius: 20px;border-top-right-radius: 20px;border-bottom-right-radius: 20px;border-bottom-left-radius: 20px;box-shadow: 5px 5px 16px 2px rgba(0,0,0,0.25);margin: 14px;min-width: 280px;max-width: 300px;margin-bottom: 20px;">
+                    <div style="width: 100%;height: 200px;background: url(&quot;{% static 'assets/img/karytonndev_background.jpg&quot;) center / contain;border-top-left-radius: 20px;border-top-right-radius: 20px;' %}"></div>
+                    <div class="card-body d-flex flex-column align-items-xl-center" style="height: 262px;">
+                        <div class="row">
+                            <div class="col">
+                                <h3 style="color: var(--gray-dark);font-family: Lora, serif;">{{result.name}}</h3>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <h4 style="color: var(--gray-dark);font-family: 'DM Sans', sans-serif;">{{ result.rollNumber }}</h4>
+                        <div class="row">
+                            <div class="col">
+                                <h4 style="color: var(--gray-dark);font-family: 'DM Sans', sans-serif;">{{result.rollNumber}}</h4>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="col">
+                                <p style="color: var(--gray-dark);">{{result.degree}} {{result.graduationYear}} {{result.department}}</p>
+                            </div>
+                        </div><a class="align-self-end card-link" data-bss-hover-animate="pulse" href="{% url 'search_profile' rollNumber=result.rollNumber %}" style="padding: 4px;background: #151728;color: rgb(255,255,255);border-radius: 17px;padding-right: 14px;padding-left: 14px;padding-bottom: 6px;font-family: 'Source Sans Pro', sans-serif;margin-top: auto;font-size: -18px;">View</a>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <p style="color: var(--gray-dark);">{{ result.degree }} {{ result.graduationYear }} {{ result.department }}</p>
-                        </div>
-                    </div>
-                    <a class="align-self-end card-link" data-bss-hover-animate="pulse"
-                       href="{% url 'search_profile' rollNumber=result.rollNumber %}"
-                       style="padding: 4px;background: #151728;color: rgb(255,255,255);border-radius: 17px;padding-right: 14px;padding-left: 14px;padding-bottom: 6px;font-family: 'Source Sans Pro', sans-serif;margin-top: auto;font-size: -18px;">View</a>
                 </div>
-            </div>
-        </div>{% endfor %}
+            </div>{%endfor%}
+        </div>
     </div>
-</div>
 <script src="{% static 'assets/js/jquery.min.js' %}"></script>
 <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
 <script src="{% static 'assets/js/bs-init.js' %}"></script>

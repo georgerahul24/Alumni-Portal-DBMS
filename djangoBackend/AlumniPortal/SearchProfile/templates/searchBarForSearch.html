@@ -1,5 +1,4 @@
 {% load static %}
-{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -53,7 +52,6 @@
     <div class="container d-flex d-xl-flex align-items-center align-items-xl-center pb-5 pt-5" style="height: 650px;">
         <div class="col-md-9 col-xl-8 ml-auto mr-auto">
             <form method="post" action="{% url 'search_results' %}">
-{%csrf_token%}
 {%csrf_token%}
                 <div class="align-items-center form-row">
                     <div class="form-group col-sm"><input class="form-control form-control pl-4 pr-4 rounded-pill" type="text" id="id_searchText" name="searchText" placeholder="Search..."></div>
