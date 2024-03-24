@@ -41,6 +41,7 @@ class AboutMeView(View):
                 permanentCity = form.cleaned_data['permanentCity']
                 permanentState = form.cleaned_data['permanentState']
                 permanentCountry = form.cleaned_data['permanentCountry']
+                showAddress = form.cleaned_data['showAddress']
 
                 rollNumber = user.username
                 with connection.cursor() as cursor:
@@ -50,6 +51,9 @@ class AboutMeView(View):
                         f"UPDATE  ProfileStatic SET permanentState = '{permanentState}' WHERE rollNumber = {rollNumber};")
                     cursor.execute(
                         f"UPDATE  ProfileStatic SET permanentCountry = '{permanentCountry}' WHERE rollNumber = {rollNumber};")
+                    cursor.execute(
+                        f"UPDATE  ProfileStatic SET showAddress = '{1 if showAddress else 0}' WHERE rollNumber = {rollNumber};")
+
                     connection.commit()
                     return redirect("yourProfile")
 

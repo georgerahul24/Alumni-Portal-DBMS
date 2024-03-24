@@ -14,7 +14,7 @@ class SearchProfileView(View):
 
             with connection.cursor() as cursor:
                 cursor.execute(
-                    "SELECT name,rollNumber,DOB,instituteEmail,primaryEmail,primaryPhoneNumber,secondaryPhoneNumber,degree,graduationYear,department,permanentCity,permanentState,permanentCountry,linkedin,github,twitter,showPhoneNumber,showEmail FROM profileStatic where rollNumber = %s",
+                    "SELECT name,rollNumber,DOB,instituteEmail,primaryEmail,primaryPhoneNumber,secondaryPhoneNumber,degree,graduationYear,department,permanentCity,permanentState,permanentCountry,linkedin,github,twitter,showPhoneNumber,showEmail,showAddress FROM profileStatic where rollNumber = %s",
                     (rollNumber,))
                 row = cursor.fetchall()[0]
                 print(row)
@@ -35,6 +35,7 @@ class SearchProfileView(View):
                            "twitter": row[15],
                            "showPhone": row[16],
                            "showEmail": row[17],
+                           "showAddress": row[18],
                            }
                 return render(request, 'searchProfileTemplate.html', context=context)
         else:

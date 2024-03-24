@@ -33,6 +33,7 @@ class AboutMeForm(forms.Form):
     permanentCity = forms.CharField(max_length=100, required=True)
     permanentState = forms.CharField(max_length=100, required=True)
     permanentCountry = forms.CharField(max_length=100, required=True)
+    showAddress = forms.BooleanField(required=False)
 
 
 class SocialMediaForm(forms.Form):
@@ -47,8 +48,8 @@ class PasswordForm(forms.Form):
 
 class ProfileDetailsForm(forms.Form):
     primaryEmail = forms.CharField(max_length=100, required=False)
-    showEmail = forms.BooleanField(required=True)
+    showEmail = forms.BooleanField(required=False)
 
     primaryPhone = forms.CharField(max_length=15, required=True)
     secondaryPhone = forms.CharField(max_length=15, required=False)
-    showPhone = forms.BooleanField(required=True)
+    showPhone = forms.BooleanField(required=False)
