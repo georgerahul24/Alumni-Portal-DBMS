@@ -27,9 +27,9 @@
         <li class="nav-item"><a class="nav-link active text-center text-white py-1 px-0" href="#" style="background: rgba(91,114,214,0);font-family: 'Source Sans Pro', sans-serif;"><span class="text-nowrap mx-2" style="font-size: 15px;"><strong>Menu</strong></span></a></li>
         <li class="nav-item"><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#"><i class="material-icons mx-3">home</i><span class="text-nowrap mx-2">Home</span></a></li>
         <li class="nav-item"><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#" style="font-family: 'Source Sans Pro', sans-serif;"><i class="material-icons mx-3" style="font-size: 20px;">photo</i><span class="text-nowrap mx-2">Gallery</span></a></li>
-        <li class="nav-item"><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#" style="font-family: 'Source Sans Pro', sans-serif;"><i class="material-icons mx-3" style="font-size: 20px;">search</i><span class="text-nowrap mx-2">Search</span></a><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="{% url 'yourProfile' %}" style="font-family: 'Source Sans Pro', sans-serif;"><i class="material-icons mx-3" style="font-size: 20px;">person</i><span class="text-nowrap mx-2">Account</span></a><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="{% url 'settings' %}" style="font-family: 'Source Sans Pro', sans-serif;"><i class="material-icons mx-3" style="font-size: 20px;">settings</i><span class="text-nowrap mx-2">Settings</span></a></li>
+        <li class="nav-item"><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="{% url 'searchbar' %}" style="font-family: 'Source Sans Pro', sans-serif;"><i class="material-icons mx-3" style="font-size: 20px;">search</i><span class="text-nowrap mx-2">Search</span></a><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="{% url 'yourProfile' %}" style="font-family: 'Source Sans Pro', sans-serif;"><i class="material-icons mx-3" style="font-size: 20px;">person</i><span class="text-nowrap mx-2">Account</span></a><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="{% url 'settings' %}" style="font-family: 'Source Sans Pro', sans-serif;"><i class="material-icons mx-3" style="font-size: 20px;">settings</i><span class="text-nowrap mx-2">Settings</span></a></li>
         <li class="nav-item"></li>
-        <li class="nav-item"><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" class="mx-3" style="font-size: 20px;">
+        <li class="nav-item"><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="{% url 'logout' %}"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" class="mx-3" style="font-size: 20px;">
                     <path d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"></path>
                 </svg><i class="fa fa-caret-right d-none position-absolute" href="&quot;{% url 'logout' %}&quot;"></i><span class="text-nowrap mx-2">Log out</span></a><a class="nav-link text-left text-white py-1 px-0" href="#" style="color: #9c9cab;"><i class="fa fa-caret-right d-none position-absolute"></i><span class="text-nowrap mx-2" style="color: #9c9cab;">&nbsp;&nbsp;</span></a><a class="nav-link text-center text-white py-1 px-0" href="#" style="background: rgba(91,114,214,0);font-family: 'Source Sans Pro', sans-serif;"><span class="text-nowrap mx-2" style="font-size: 15px;"><strong>Other Sections</strong></span></a><a class="nav-link text-left d-xl-flex align-items-xl-center py-1 px-0" href="#"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" class="mx-3" style="font-size: 20px;">
@@ -174,7 +174,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>Show Phone Number</td>
-                                                    <td><input type="checkbox" id="id_showPhone" checked="" style="margin: 10px;height: 14px;"  name="showPhone"></td>
+                                                    <td><input type="checkbox" id="id_showPhone" checked="" style="margin: 10px;height: 14px;" name="showPhone"></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -214,6 +214,7 @@
     </div>
 <script src="{% static 'assets/js/jquery.min.js' %}"></script>
 <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/bs-init.js' %}"></script>
 <script src="{% static 'assets/js/sidebar.js' %}"></script>
 </body>
 

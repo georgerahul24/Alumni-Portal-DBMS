@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from django.views import View
 from AlumniPortal.credentialManager import CredentialManager as cm
 
+from .forms import SearchBarForm
+
 connection = mysql.connector.connect(user=cm.user, password=cm.password, host=cm.host, database=cm.database,
                                      autocommit=True)
 
@@ -38,5 +40,65 @@ class SearchProfileView(View):
                            "showAddress": row[18],
                            }
                 return render(request, 'searchProfileTemplate.html', context=context)
+        else:
+            return redirect("login")
+
+
+class SearchBarView(View):
+    def get(self, request):
+        if request.user.is_authenticated:
+            return render(request, "searchBarForSearch.html")
+        else:
+            return redirect("login")
+
+
+class Result:
+    def __init__(self, name, rollNumber, graduationYear, degree, department):
+        self.name = name
+        self.rollNumber = rollNumber
+        self.graduationYear = graduationYear
+        self.degree = degree
+        self.department = department
+
+
+class SearchResultsView(View):
+    def get(self, request):
+        if request.user.is_authenticated:
+            return redirect("searchbar")
+        else:
+            return redirect("login")
+
+    def post(self, request):
+        if request.user.is_authenticated:
+            form = SearchBarForm(request.POST)
+            if form.is_valid():
+                searchText = form.cleaned_data['searchText']
+                rows = []
+                if searchText.isnumeric():
+                    # Then this is a roll number
+                    with connection.cursor() as cursor:
+                        cursor.execute(
+                            f"SELECT name,rollNumber,graduationYear,degree,department FROM profileStatic where rollNumber = {searchText} ")
+                        rows = cursor.fetchall()
+                else:
+                    # This is a string to search
+                    # TODO: Try searching companies and institutes also
+                    with connection.cursor() as cursor:
+                        cursor.execute(
+                            f"SELECT name,rollNumber,graduationYear,degree,department FROM profileStatic where name like '%{searchText}%'")
+                        rows = cursor.fetchall()
+
+                if len(rows) == 0:
+                    return redirect("searchbar")
+                print(rows)
+                resultRows = []
+                for row in rows:
+                    resultRows.append(Result(row[0], row[1], row[2], row[3], row[4]))
+                context = {"resultRows": resultRows}
+                return render(request, "searchResultPageForProfile.html", context)
+            else:
+                print(form.errors)
+                return redirect("searchbar")
+
         else:
             return redirect("login")
