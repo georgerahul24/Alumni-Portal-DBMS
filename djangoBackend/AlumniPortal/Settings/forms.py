@@ -37,9 +37,9 @@ class AboutMeForm(forms.Form):
 
 
 class SocialMediaForm(forms.Form):
-    linkedin = forms.CharField(max_length=1000, required=True)
-    twitter = forms.CharField(max_length=1000, required=True)
-    github = forms.CharField(max_length=1000, required=True)
+    linkedin = forms.CharField(max_length=1000)
+    twitter = forms.CharField(max_length=1000)
+    github = forms.CharField(max_length=1000)
 
 
 class PasswordForm(forms.Form):
@@ -53,3 +53,13 @@ class ProfileDetailsForm(forms.Form):
     primaryPhone = forms.CharField(max_length=15, required=True)
     secondaryPhone = forms.CharField(max_length=15, required=False)
     showPhone = forms.BooleanField(required=False)
+
+
+class NewEducationForm(forms.Form):
+    instituteName = forms.CharField(max_length=100, required=True)
+    degree = forms.CharField(max_length=100, required=True)
+    fieldOfStudy = forms.CharField(max_length=100, required=True)
+    startYear = forms.IntegerField(required=False)
+    endYear = forms.IntegerField(required=False)
+
+    description = forms.CharField(max_length=1000, required=False)

@@ -57,7 +57,7 @@ CREATE TABLE Accomplishments
 (
     rollNumber INTEGER      NOT NULL,
     title      VARCHAR(250) NOT NULL,
-    body       TEXT,
+    body       VARCHAR(2000),
     month      INTEGER      NOT NULL,
     year       INTEGER      NOT NULL,
 
@@ -96,7 +96,7 @@ CREATE TABLE Education
     degree       VARCHAR(250) NOT NULL,
     fieldOfStudy VARCHAR(250) DEFAULT ' ',
     institute    VARCHAR(250) NOT NULL,
-    description  TEXT,
+    description  VARCHAR(2000),
     startYear    INTEGER      NOT NULL,
     endYear      INTEGER      DEFAULT NULL,
 
@@ -104,7 +104,6 @@ CREATE TABLE Education
     CONSTRAINT endYearEducationConstraint CHECK ( endYear >= 1950 AND endYear <= 2030),
 
     FOREIGN KEY (rollNumber) REFERENCES ProfileStatic (rollNumber) ON DELETE CASCADE,
-    FOREIGN KEY (institute) REFERENCES Institutes (name),
     PRIMARY KEY (rollNumber, degree, fieldOfStudy)
 );
 

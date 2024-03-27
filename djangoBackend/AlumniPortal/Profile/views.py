@@ -9,6 +9,16 @@ connection = mysql.connector.connect(user=cm.user, password=cm.password, host=cm
                                      autocommit=True)
 
 
+class EducationDetails:
+    def __init__(self, degree, fieldOfStudy, institute, description, startYear, endYear):
+        self.degree = degree
+        self.fieldOfStudy = fieldOfStudy
+        self.instituteName = institute
+        self.description = description
+        self.startYear = startYear
+        self.endYear = endYear
+
+
 # Create your views here.
 class YourProfileView(View):
     def get(self, request):
@@ -22,6 +32,11 @@ class YourProfileView(View):
                     (user.username,))
                 row = cursor.fetchall()[0]
                 print(row)
+                cursor.execute(
+                    f"SELECT degree,fieldOfStudy,institute,description,startYear,endYear FROM Education where rollNumber = {user.username};")
+                educations = []
+                for educationRow in cursor.fetchall():
+                    educations.append(EducationDetails(educationRow[0], educationRow[1], educationRow[2], educationRow[3], educationRow[4], educationRow[5]))
 
                 context = {"name": row[0],
                            "rollNumber": row[1],
@@ -37,5 +52,6 @@ class YourProfileView(View):
                            "linkedin": row[13],
                            "github": row[14],
                            "twitter": row[15],
+                           "educations": educations,
                            }
                 return render(request, 'yourProfileTemplate.html', context=context)

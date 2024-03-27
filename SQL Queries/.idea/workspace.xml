@@ -5,62 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25f4443f-0216-4daf-8de9-b994d7f8d70f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/css/Article-Clean.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/css/sidebar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/MaterialIcons-Regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/MaterialIcons-Regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/MaterialIcons-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/MaterialIcons-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/MaterialIcons-Regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/fa-brands-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/fa-brands-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/fa-brands-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/fa-brands-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/fa-brands-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/fa-regular-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/fa-regular-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/fa-regular-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/fa-regular-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/fa-regular-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/fa-solid-900.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/fa-solid-900.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/fa-solid-900.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/fa-solid-900.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/fa-solid-900.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/fontawesome-all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/fontawesome5-overrides.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/ionicons.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/ionicons.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/ionicons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/ionicons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/ionicons.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/fonts/material-icons.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/img/beach.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/img/desk.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/img/photo-1508247967583-7d982ea01526 copy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/img/photo-1508247967583-7d982ea01526.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/static/assets/js/sidebar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/templates/SignUp.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/SignUp/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoBackend/linkCSS.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/Settings/templates/insertEducationDetails.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/05adb26e-6501-454a-8e8a-c7c9d81f751d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/05adb26e-6501-454a-8e8a-c7c9d81f751d.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Table Structures.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Table Structures.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../djangoBackend/.idea/djangoBackend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../djangoBackend/.idea/djangoBackend.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/AlumniPortal/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/AlumniPortal/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/AlumniPortal/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/AlumniPortal/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/Login/templates/loginSuccess.html" beforeDir="false" afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/Login/templates/loginSuccess.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/Settings/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/Settings/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/Settings/templates/SignUp.html" beforeDir="false" afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/Settings/templates/SignUp.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/Settings/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/Settings/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/Settings/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/Settings/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

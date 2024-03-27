@@ -7,6 +7,14 @@ from .forms import SearchBarForm
 
 connection = mysql.connector.connect(user=cm.user, password=cm.password, host=cm.host, database=cm.database,
                                      autocommit=True)
+class EducationDetails:
+    def __init__(self, degree, fieldOfStudy, institute, description, startYear, endYear):
+        self.degree = degree
+        self.fieldOfStudy = fieldOfStudy
+        self.instituteName = institute
+        self.description = description
+        self.startYear = startYear
+        self.endYear = endYear
 
 
 # Create your views here.
@@ -20,6 +28,13 @@ class SearchProfileView(View):
                     (rollNumber,))
                 row = cursor.fetchall()[0]
                 print(row)
+                cursor.execute(
+                    f"SELECT degree,fieldOfStudy,institute,description,startYear,endYear FROM Education where rollNumber = {rollNumber};")
+                educations = []
+                for educationRow in cursor.fetchall():
+                    educations.append(
+                        EducationDetails(educationRow[0], educationRow[1], educationRow[2], educationRow[3],
+                                         educationRow[4], educationRow[5]))
 
                 context = {"name": row[0],
                            "rollNumber": row[1],
@@ -38,6 +53,7 @@ class SearchProfileView(View):
                            "showPhone": row[16],
                            "showEmail": row[17],
                            "showAddress": row[18],
+                           "educations": educations,
                            }
                 return render(request, 'searchProfileTemplate.html', context=context)
         else:

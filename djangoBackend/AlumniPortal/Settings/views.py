@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.generic import View
-from .forms import AboutMeForm, SocialMediaForm, ProfileDetailsForm, PasswordForm
+from .forms import AboutMeForm, SocialMediaForm, ProfileDetailsForm, PasswordForm, NewEducationForm
 import mysql.connector
 from AlumniPortal.credentialManager import CredentialManager as cm
 
@@ -17,8 +17,9 @@ class SettingsView(View):
         else:
             user = request.user
             with connection.cursor() as cursor:
+
                 cursor.execute(
-                    "SELECT name,rollNumber,DOB,instituteEmail,primaryEmail,primaryPhoneNumber,secondaryPhoneNumber,degree FROM profileStatic where rollNumber = %s",
+                    "SELECT name,rollNumber,DOB,instituteEmail,primaryEmail,primaryPhoneNumber,secondaryPhoneNumber,degree,permanentCity,permanentState,permanentCountry,linkedin,twitter,github,primaryPhoneNumber,secondaryPhoneNumber FROM profileStatic where rollNumber = %s;",
                     (user.username,))
                 row = cursor.fetchall()[0]
                 print(row)
@@ -27,7 +28,16 @@ class SettingsView(View):
                            "rollNumber": row[1],
                            "DOB": row[2],
                            "instituteEmailID": row[3],
-                           "batch": row[7]
+                           "primaryEmail": row[4],
+                           "batch": row[7],
+                           "permanentCity": row[8],
+                           "permanentState": row[9],
+                           "permanentCountry": row[10],
+                           "linkedin": row[11],
+                           "twitter": row[12],
+                           "github": row[13],
+                           "primaryPhone": row[14],
+                           "secondaryPhone": row[15],
                            }
                 return render(request, 'SignUp.html', context=context)
 
@@ -69,6 +79,7 @@ class SocialMediaView(View):
         if request.user.is_authenticated:
             user = request.user
             form = SocialMediaForm(request.POST)
+            print(form)
             if form.is_valid():
                 linkedIn = form.cleaned_data['linkedin']
                 github = form.cleaned_data['github']
@@ -144,6 +155,32 @@ class ProfileView(View):
 
             else:
                 print(form.errors)
+                return redirect("settings")
+        else:
+            return redirect("login")
+
+
+class NewEducationView(View):
+    def get(self, request):
+        return render(request,"insertEducationDetails.html")
+
+    def post(self, request):
+        if request.user.is_authenticated:
+            user = request.user
+            form = NewEducationForm(request.POST)
+            if form.is_valid():
+                instituteName = form.cleaned_data['instituteName']
+                degree = form.cleaned_data['degree']
+                fieldOfStudy = form.cleaned_data['fieldOfStudy']
+                startYear = form.cleaned_data['startYear']
+                endYear = form.cleaned_data['endYear']
+                description = form.cleaned_data['description']
+
+                with connection.cursor() as cursor:
+                    cursor.execute(f"INSERT INTO Education (rollNumber,institute,degree,fieldOfStudy,startYear,endYear,description) VALUES ({user.username},'{instituteName}','{degree}','{fieldOfStudy}',{startYear},{endYear},'{description}');")
+
+                return redirect("yourProfile")
+            else:
                 return redirect("settings")
         else:
             return redirect("login")

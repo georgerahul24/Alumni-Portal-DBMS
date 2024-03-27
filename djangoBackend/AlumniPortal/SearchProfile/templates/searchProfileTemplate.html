@@ -174,12 +174,12 @@
                                 </div>{% endif %}
                             </div>
                             <div class="col-11 content-box" id="education">
-                                <h1 style="font-size: 25px;">Education</h1>
-                                <div id="educationContainer-1" class="detailsContainer">
-                                    <h1 class="degreeAndYear" style="font-size: 22px;">Devamatha CMI Public School</h1>
-                                    <h1 class="instituteName" style="font-size: 14px;">Class 12, 2020 - 2022</h1>
-                                    <p class="educationDescription">I did my class 12 here. me pass with 97% and all...very miuch topper I am dont worry</p>
-                                </div>
+                                <h1 style="font-size: 25px;">Education</h1>{% for education in educations %}
+                                <div class="detailsContainer">
+                                    <h1 class="degreeAndYear" style="font-size: 22px;">{{ education.instituteName }}</h1>
+                                    <h1 class="instituteName" style="font-size: 14px;">{{ education.degree }} ( {{education.fieldOfStudy}} ) , {{ education.startYear}} - {{ education.endYear}}</h1>
+                                    <p class="educationDescription">{{education.description}}</p>
+                                </div>{% endfor %}
                             </div>
                             <div class="col-11 content-box" id="profileDetails-1">
                                 <h1 style="font-size: 25px;">Experience</h1>
