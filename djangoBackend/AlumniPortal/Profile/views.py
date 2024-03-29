@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import View
 import mysql.connector
 from AlumniPortal.credentialManager import CredentialManager as cm
+import calendar
 
 connection = mysql.connector.connect(user=cm.user, password=cm.password, host=cm.host, database=cm.database,
                                      autocommit=True)
@@ -16,6 +17,23 @@ class EducationDetails:
         self.instituteName = institute
         self.description = description
         self.startYear = startYear
+        self.endYear = endYear
+
+
+class AccomplishmentDetails:
+    def __init__(self, title, description, month, year):
+        self.title = title
+        self.description = description
+        self.month = calendar.month_name[month]
+        self.year = year
+class ExperienceDetails:
+    def __init__(self, title, companyName, description, startMonth, startYear, endMonth, endYear):
+        self.title = title
+        self.company = companyName
+        self.description = description
+        self.startMonth = calendar.month_abbr[startMonth]
+        self.startYear = startYear
+        self.endMonth = calendar.month_abbr[endMonth]
         self.endYear = endYear
 
 
@@ -36,7 +54,27 @@ class YourProfileView(View):
                     f"SELECT degree,fieldOfStudy,institute,description,startYear,endYear FROM Education where rollNumber = {user.username};")
                 educations = []
                 for educationRow in cursor.fetchall():
-                    educations.append(EducationDetails(educationRow[0], educationRow[1], educationRow[2], educationRow[3], educationRow[4], educationRow[5]))
+                    educations.append(
+                        EducationDetails(educationRow[0], educationRow[1], educationRow[2], educationRow[3],
+                                         educationRow[4], educationRow[5]))
+
+                cursor.execute(
+                    f"SELECT title,body,month,year FROM Accomplishments where rollNumber = {user.username};")
+
+                accomplishments = []
+                for accomplishmentRow in cursor.fetchall():
+                    accomplishments.append(
+                        AccomplishmentDetails(accomplishmentRow[0], accomplishmentRow[1], accomplishmentRow[2],
+                                              accomplishmentRow[3]))
+
+                cursor.execute(
+                    f"SELECT title,companyName,description,startMonth,startYear,endMonth,endYear FROM Experiences where rollNumber = {user.username};")
+
+                experiences = []
+                for experienceRow in cursor.fetchall():
+                    experiences.append(
+                        ExperienceDetails(experienceRow[0], experienceRow[1], experienceRow[2], experienceRow[3],
+                                          experienceRow[4], experienceRow[5], experienceRow[6]))
 
                 context = {"name": row[0],
                            "rollNumber": row[1],
@@ -53,5 +91,7 @@ class YourProfileView(View):
                            "github": row[14],
                            "twitter": row[15],
                            "educations": educations,
+                           "accomplishments": accomplishments,
+                           "experiences": experiences,
                            }
                 return render(request, 'yourProfileTemplate.html', context=context)

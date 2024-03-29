@@ -175,21 +175,22 @@
                                     <p class="educationDescription">{{education.description}}</p>
                                 </div>{% endfor %}
                             </div>
-                            <div class="col-11 content-box" id="profileDetails-1">
+                            <div class="col-11 content-box" id="ExperinceDetails">
                                 <h1 style="font-size: 25px;">Experience</h1>
-                                <div id="educationContainer" class="detailsContainer">
-                                    <h1 class="instituteName" style="font-size: 14px;">March 2023</h1>
-                                    <h1 class="degreeAndYear" style="font-size: 22px;">Programming Club Coordinator</h1>
-                                    <p class="educationDescription">I am the programming club coordinator of IIIT G. And i am the best at it</p>
+                                <div class="detailsContainer experinceContainer">{% for experience in experiences %}
+                                    <h6 class="instituteName">{{ experience.startMonth}} {{ experience.startYear}}&nbsp; -&nbsp; {{ experience.endMonth}} {{ experience.endYear}}</h6>
+                                    <h3 class="degreeAndYear">{{ experience.title}} </h3>
+                                    <h5 class="degreeAndYear">{{ experience.company}} </h5>
+                                    <p class="educationDescription">{{ experience.description}}&nbsp;</p>{% endfor %}
                                 </div>
                             </div>
-                            <div class="col-11 content-box" id="profileDetails-2">
-                                <h1 style="font-size: 25px;">Achievements</h1>
-                                <div id="educationContainer-2" class="detailsContainer">
-                                    <h1 class="instituteName" style="font-size: 14px;">Dec.&nbsp; 2022</h1>
-                                    <h1 class="degreeAndYear" style="font-size: 22px;">JEE Main</h1>
-                                    <p class="educationDescription">Jee mains kaise toh pass hogaya !!!!!</p>
-                                </div>
+                            <div class="col-11 content-box" id="Acheivments-Details">
+                                <h1 style="font-size: 25px;">Achievements</h1>{% for accomplishment in accomplishments %}
+                                <div class="detailsContainer accomplishmentContainer">
+                                    <h1 class="instituteName" style="font-size: 14px;">{{accomplishment.month}} {{accomplishment.year}}</h1>
+                                    <h1 class="degreeAndYear" style="font-size: 22px;">{{accomplishment.title}}</h1>
+                                    <p class="educationDescription">{{accomplishment.description}}</p>
+                                </div>{% endfor %}
                             </div>
                         </div>
                     </div>

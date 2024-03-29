@@ -107,18 +107,22 @@ CREATE TABLE Education
     PRIMARY KEY (rollNumber, degree, fieldOfStudy)
 );
 
-CREATE TABLE JobProfile
+CREATE TABLE Experiences
 (
     rollNumber  INTEGER      NOT NULL,
     title       VARCHAR(250) NOT NULL,
     companyName VARCHAR(250) not null,
     description TEXT,
-    startDate   DATE         NOT NULL,
-    endDate     DATE DEFAULT NULL,
+    startMonth  INTEGER      NOT NULL,
+    startYear   INTEGER      NOT NULL,
+    endMonth    INTEGER DEFAULT NULL,
+    endYear     INTEGER DEFAULT NULL,
 
     FOREIGN KEY (rollNumber) REFERENCES ProfileStatic (rollNumber) ON DELETE CASCADE,
-    FOREIGN KEY (companyName) REFERENCES Companies (name),
-    PRIMARY KEY (rollNumber, companyName, startDate)
+    -- FOREIGN KEY (companyName) REFERENCES Companies (name),
+    PRIMARY KEY (rollNumber, companyName, startMonth, startYear),
+    CONSTRAINT startMonthJobConstraint CHECK ( startMonth >= 1 AND startMonth <= 12 ),
+    CONSTRAINT endMonthJobConstraint CHECK ( endMonth >= 1 AND endMonth <= 12 )
 
 
 );
