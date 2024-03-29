@@ -37,9 +37,9 @@ class AboutMeForm(forms.Form):
 
 
 class SocialMediaForm(forms.Form):
-    linkedin = forms.CharField(max_length=1000)
-    twitter = forms.CharField(max_length=1000)
-    github = forms.CharField(max_length=1000)
+    linkedin = forms.CharField(max_length=1000, required=False)
+    twitter = forms.CharField(max_length=1000, required=False)
+    github = forms.CharField(max_length=1000, required=False)
 
 
 class PasswordForm(forms.Form):
@@ -63,3 +63,10 @@ class NewEducationForm(forms.Form):
     endYear = forms.IntegerField(required=False)
 
     description = forms.CharField(max_length=1000, required=False)
+
+
+class NewAccomplishmentForm(forms.Form):
+    title = forms.CharField(max_length=100, required=True)
+    description = forms.CharField(max_length=1000, required=False)
+    month = forms.IntegerField(required=True)
+    year = forms.IntegerField(required=True)

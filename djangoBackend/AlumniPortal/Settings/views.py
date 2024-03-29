@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.generic import View
-from .forms import AboutMeForm, SocialMediaForm, ProfileDetailsForm, PasswordForm, NewEducationForm
+from .forms import *
 import mysql.connector
 from AlumniPortal.credentialManager import CredentialManager as cm
 
@@ -162,7 +162,7 @@ class ProfileView(View):
 
 class NewEducationView(View):
     def get(self, request):
-        return render(request,"insertEducationDetails.html")
+        return render(request, "insertEducationDetails.html")
 
     def post(self, request):
         if request.user.is_authenticated:
@@ -177,7 +177,33 @@ class NewEducationView(View):
                 description = form.cleaned_data['description']
 
                 with connection.cursor() as cursor:
-                    cursor.execute(f"INSERT INTO Education (rollNumber,institute,degree,fieldOfStudy,startYear,endYear,description) VALUES ({user.username},'{instituteName}','{degree}','{fieldOfStudy}',{startYear},{endYear},'{description}');")
+                    cursor.execute(
+                        f"INSERT INTO Education (rollNumber,institute,degree,fieldOfStudy,startYear,endYear,description) VALUES ({user.username},'{instituteName}','{degree}','{fieldOfStudy}',{startYear},{endYear},'{description}');")
+
+                return redirect("yourProfile")
+            else:
+                return redirect("settings")
+        else:
+            return redirect("login")
+
+
+class NewAccomplishmentView(View):
+    def get(self, request):
+        return render(request, "insertAccomplismentDetails.html")
+
+    def post(self, request):
+        if request.user.is_authenticated:
+            user = request.user
+            form = NewAccomplishmentForm(request.POST)
+            if form.is_valid():
+                title = form.cleaned_data['title']
+                description = form.cleaned_data['description']
+                month = form.cleaned_data['month']
+                year = form.cleaned_data['year']
+                print("sdfkbashjklfgblihasfbvlhjkabsf")
+                with connection.cursor() as cursor:
+                    cursor.execute(
+                        f"INSERT INTO Accomplishments (rollNumber,title,body,month,year) VALUES ({user.username},'{title}','{description}',{month},{year});")
 
                 return redirect("yourProfile")
             else:
