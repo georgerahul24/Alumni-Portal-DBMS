@@ -27,7 +27,8 @@ class ExperienceDetails:
         self.description = description
         self.startMonth = calendar.month_abbr[startMonth]
         self.startYear = startYear
-        self.endMonth = calendar.month_abbr[endMonth]
+        print(endMonth)
+        self.endMonth = calendar.month_abbr[endMonth] if endMonth else 'Present'
         self.endYear = endYear
 
 

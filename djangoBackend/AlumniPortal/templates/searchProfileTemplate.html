@@ -176,25 +176,25 @@
                             <div class="col-11 content-box" id="education">
                                 <h1 style="font-size: 25px;">Education</h1>{% for education in educations %}
                                 <div class="detailsContainer">
-                                    <h3 class="degreeAndYear">{{ education.instituteName }}</h3>
-                                    <h5 class="instituteName">{{ education.degree }} ( {{education.fieldOfStudy}} ) , {{ education.startYear}} - {{ education.endYear}}</h5>
+                                    <h5 class="degreeAndYear">{{ education.instituteName }}</h5>
+                                    <h6 class="instituteName">{{ education.degree }} ( {{education.fieldOfStudy}} ) , {{ education.startYear}} - {{ education.endYear}}</h6>
                                     <p class="educationDescription">{{education.description}}</p>
                                 </div>{% endfor %}
                             </div>
                             <div class="col-11 content-box" id="experinceContainer">
-                                <h1 style="font-size: 25px;">Experience</h1>
-                                <div class="detailsContainer experinceContainer">{% for experience in experiences %}
+                                <h1 style="font-size: 25px;">Experience</h1>{% for experience in experiences %}
+                                <div class="detailsContainer experinceContainer">
                                     <h6 class="instituteName">{{ experience.startMonth}} {{ experience.startYear}}&nbsp; -&nbsp; {{ experience.endMonth}} {{ experience.endYear}}</h6>
-                                    <h3 class="degreeAndYear">{{ experience.title}} </h3>
-                                    <h5 class="degreeAndYear">in {{ experience.company}} </h5>
-                                    <p class="educationDescription">{{ experience.description}}&nbsp;</p>{% endfor %}
-                                </div>
+                                    <h5 class="degreeAndYear">{{ experience.title}} </h5>
+                                    <h6 class="degreeAndYear">in {{ experience.company}} </h6>
+                                    <p class="educationDescription">{{ experience.description}}&nbsp;</p>
+                                </div>{% endfor %}
                             </div>
                             <div class="col-11 content-box" id="Acheivments-Details">
                                 <h1 style="font-size: 25px;">Achievements</h1>{% for accomplishment in accomplishments %}
                                 <div class="detailsContainer accomplishmentContainer">
                                     <h6 class="instituteName">{{accomplishment.month}} {{accomplishment.year}}</h6>
-                                    <h3 class="degreeAndYear">{{accomplishment.title}}</h3>
+                                    <h5 class="degreeAndYear">{{accomplishment.title}}</h5>
                                     <p class="educationDescription">{{accomplishment.description}}</p>
                                 </div>{% endfor %}
                             </div>

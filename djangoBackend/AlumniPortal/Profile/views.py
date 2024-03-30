@@ -33,8 +33,8 @@ class ExperienceDetails:
         self.description = description
         self.startMonth = calendar.month_abbr[startMonth]
         self.startYear = startYear
-        self.endMonth = calendar.month_abbr[endMonth]
-        self.endYear = endYear
+        self.endMonth = calendar.month_abbr[endMonth] if endMonth else 'Present'
+        self.endYear = endYear if endYear else ''
 
 
 # Create your views here.
