@@ -135,12 +135,18 @@ class SearchResultsView(View):
                 searchText = form.cleaned_data['searchText']
                 rows = []
                 if searchText.isnumeric():
-                    # Then this is a roll number
-                    searchText += "0" * (7 - len(searchText))
-                    with connection.cursor() as cursor:
-                        cursor.execute(
-                            f"SELECT name,rollNumber,graduationYear,degree,department FROM profileStatic where rollNumber >= {searchText} ")
-                        rows = cursor.fetchall()
+                    # Then this is a partial roll number
+                    if len(searchText) != 7:
+                        searchText += "0" * (7 - len(searchText))
+                        with connection.cursor() as cursor:
+                            cursor.execute(
+                                f"SELECT name,rollNumber,graduationYear,degree,department FROM profileStatic where rollNumber >= {searchText} ")
+                            rows = cursor.fetchall()
+                    else:
+                        with connection.cursor() as cursor:
+                            cursor.execute(
+                                f"SELECT name,rollNumber,graduationYear,degree,department FROM profileStatic where rollNumber = {searchText} ")
+                            rows = cursor.fetchall()
                 else:
                     # This is a string to search
                     # TODO: Try searching companies and institutes also

@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25f4443f-0216-4daf-8de9-b994d7f8d70f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/05adb26e-6501-454a-8e8a-c7c9d81f751d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/05adb26e-6501-454a-8e8a-c7c9d81f751d.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
