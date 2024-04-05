@@ -1,5 +1,6 @@
 body {
-  background: linear-gradient(45deg, #5c1a97, #050d37);
+  /*background: linear-gradient(45deg, #050d37, #050d37);*/
+  background: #99aed1;
   height: 100vh;
   font-family: "Montserrat", sans-serif;
 }
@@ -12,7 +13,7 @@ body {
 }
 
 form {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(19, 110, 166, 0.47);
   padding: 3em;
   height: 320px;
   border-radius: 20px;
@@ -108,7 +109,7 @@ form:hover,button {
 }
 
 .drop {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(177, 215, 236, 0.3);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
   border-radius: 10px;

@@ -112,7 +112,7 @@ CREATE TABLE Experiences
     rollNumber  INTEGER      NOT NULL,
     title       VARCHAR(250) NOT NULL,
     companyName VARCHAR(250) not null,
-    description TEXT,
+    description VARCHAR(2000),
     startMonth  INTEGER      NOT NULL,
     startYear   INTEGER      NOT NULL,
     endMonth    INTEGER DEFAULT NULL,
@@ -132,7 +132,7 @@ CREATE TABLE Stories
     rollNumber INTEGER      NOT NULL,
     title      VARCHAR(250) NOT NULL,
     datePosted DATETIME     NOT NULL,
-    body       TEXT         NOT NULL,
+    body       VARCHAR(2000)        NOT NULL,
 
     FOREIGN KEY (rollNumber) REFERENCES ProfileStatic (rollNumber) ON DELETE CASCADE,
     PRIMARY KEY (rollNumber, title)
@@ -144,7 +144,7 @@ CREATE TABLE Ideas
     rollNumber  INTEGER      NOT NULL,
     title       VARCHAR(250) NOT NULL,
     datePosted  DATETIME     NOT NULL,
-    description TEXT         NOT NULL,
+    description VARCHAR(2000)      NOT NULL,
     FOREIGN KEY (rollNumber) REFERENCES ProfileStatic (rollNumber) ON DELETE CASCADE,
     PRIMARY KEY (rollNumber, title)
 )
