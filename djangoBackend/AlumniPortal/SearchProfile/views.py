@@ -136,9 +136,10 @@ class SearchResultsView(View):
                 rows = []
                 if searchText.isnumeric():
                     # Then this is a roll number
+                    searchText += "0" * (7 - len(searchText))
                     with connection.cursor() as cursor:
                         cursor.execute(
-                            f"SELECT name,rollNumber,graduationYear,degree,department FROM profileStatic where rollNumber = {searchText} ")
+                            f"SELECT name,rollNumber,graduationYear,degree,department FROM profileStatic where rollNumber >= {searchText} ")
                         rows = cursor.fetchall()
                 else:
                     # This is a string to search

@@ -107,18 +107,22 @@ CREATE TABLE Education
     PRIMARY KEY (rollNumber, degree, fieldOfStudy)
 );
 
-CREATE TABLE JobProfile
+CREATE TABLE Experiences
 (
     rollNumber  INTEGER      NOT NULL,
     title       VARCHAR(250) NOT NULL,
     companyName VARCHAR(250) not null,
     description TEXT,
-    startDate   DATE         NOT NULL,
-    endDate     DATE DEFAULT NULL,
+    startMonth  INTEGER      NOT NULL,
+    startYear   INTEGER      NOT NULL,
+    endMonth    INTEGER DEFAULT NULL,
+    endYear     INTEGER DEFAULT NULL,
 
     FOREIGN KEY (rollNumber) REFERENCES ProfileStatic (rollNumber) ON DELETE CASCADE,
-    FOREIGN KEY (companyName) REFERENCES Companies (name),
-    PRIMARY KEY (rollNumber, companyName, startDate)
+    -- FOREIGN KEY (companyName) REFERENCES Companies (name),
+    PRIMARY KEY (rollNumber, companyName, startMonth, startYear),
+    CONSTRAINT startMonthJobConstraint CHECK ( startMonth >= 1 AND startMonth <= 12 ),
+    CONSTRAINT endMonthJobConstraint CHECK ( endMonth >= 1 AND endMonth <= 12 )
 );
 
 CREATE TABLE Stories
@@ -256,15 +260,15 @@ INSERT INTO Education (rollNumber, degree, fieldOfStudy, institute, description,
 (2001005, 'M.S.', 'Artificial Intelligence', 'Stanford University', 'Master of Science in Artificial Intelligence', 2024, NULL),
 (2001007, 'MBA', 'Technology Management', 'Harvard University', 'Master of Business Administration in Technology Management', 2024, NULL);
 
-INSERT INTO Experiences (rollNumber, title, companyName, description, startDate) VALUES
-(2001001, 'Software Engineer', 'Google', 'Developing scalable web applications.', '2024-01-01'),
-(2001003, 'Systems Analyst', 'Microsoft', 'Analyzing system requirements and overseeing network infrastructure.', '2024-01-01'),
-(2001004, 'Data Scientist', 'Amazon', 'Leveraging large data sets to improve product recommendations.', '2024-01-01'),
-(2001006, 'Network Engineer', 'Oracle', 'Designing and implementing new network solutions.', '2024-01-01'),
-(2001008, 'Product Manager', 'Flipkart', 'Overseeing product development from conception to launch.', '2024-01-01'),
-(2001009, 'UI/UX Designer', 'Adobe', 'Designing user interfaces and user experiences for mobile and web applications.', '2024-01-01'),
-(2001010, 'Cybersecurity Analyst', 'IBM', 'Protecting company’s information systems from cyber threats.', '2024-01-01');
-
+INSERT INTO Experiences
+(rollNumber, title, companyName, description, startMonth, startYear) VALUES
+(2001001, 'Software Engineer', 'Google', 'Developing scalable web applications.', '01','2024'),
+(2001003, 'Systems Analyst', 'Microsoft', 'Analyzing system requirements and overseeing network infrastructure.', '01','2024'),
+(2001004, 'Data Scientist', 'Amazon', 'Leveraging large data sets to improve product recommendations.', '01','2024'),
+(2001006, 'Network Engineer', 'Oracle', 'Designing and implementing new network solutions.', '01','2024'),
+(2001008, 'Product Manager', 'Flipkart', 'Overseeing product development from conception to launch.', '01','2024'),
+(2001009, 'UI/UX Designer', 'Adobe', 'Designing user interfaces and user experiences for mobile and web applications.', '01','2024'),
+(2001010, 'Cybersecurity Analyst', 'IBM', 'Protecting company’s information systems from cyber threats.', '01','2024');
 
 
 
@@ -282,7 +286,3 @@ INSERT INTO Ideas (rollNumber, title, datePosted, description) VALUES
 (2001005, 'Mental Health Awareness Week', '2023-08-15 11:45:00', 'Mental health is crucial for academic success and overall well-being. I propose organizing an annual Mental Health Awareness Week featuring workshops, guest speakers, and activities focused on stress management, mindfulness, and mental health resources.'),
 (2001008, 'Innovation Hub', '2023-10-02 09:30:00', 'To encourage creativity and innovation among students, I propose the creation of an Innovation Hub. This space will be equipped with the latest technology, including 3D printers, VR equipment, and software development kits, providing students with the tools they need to bring their ideas to life.'),
 (2001010, 'Alumni Interaction Platform', '2023-12-01 12:00:00', 'Building a strong network is essential for personal and professional growth. I suggest developing an Alumni Interaction Platform that facilitates networking, mentorship, and collaboration between current students and alumni. This platform can host virtual meetups, mentorship programs, and forums for sharing job opportunities.');
-
-
-
-
