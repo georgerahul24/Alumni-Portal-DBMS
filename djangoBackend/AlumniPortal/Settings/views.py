@@ -53,9 +53,9 @@ class SettingsView(View):
             with connection.cursor() as cursor:
 
                 cursor.execute(
-                    "SELECT name,rollNumber,DOB,instituteEmail,primaryEmail,primaryPhoneNumber,secondaryPhoneNumber,degree,permanentCity,permanentState,permanentCountry,linkedin,twitter,github,primaryPhoneNumber,secondaryPhoneNumber FROM profileStatic where rollNumber = %s;",
+                    "SELECT name,rollNumber,DOB,instituteEmail,primaryEmail,primaryPhoneNumber,secondaryPhoneNumber,degree,graduationYear,department,permanentCity,permanentState,permanentCountry,linkedin,github,twitter FROM profileStatic where rollNumber = %s",
                     (user.username,))
-                row = cursor.fetchall()[0]
+                row = cursor.fetchone()
                 print(row)
 
                 cursor.execute(
