@@ -59,10 +59,20 @@ class NewEducationForm(forms.Form):
     instituteName = forms.CharField(max_length=100, required=True)
     degree = forms.CharField(max_length=100, required=True)
     fieldOfStudy = forms.CharField(max_length=100, required=True)
-    startYear = forms.IntegerField(required=False)
-    endYear = forms.IntegerField(required=False)
+    startYear = forms.IntegerField(required=True)
+    endYear = forms.IntegerField(required=True)
 
     description = forms.CharField(max_length=1000, required=False)
+
+
+class NewExperienceForm(forms.Form):
+    title = forms.CharField(max_length=100, required=True)
+    companyName = forms.CharField(max_length=100, required=True)
+    description = forms.CharField(max_length=1000, required=False)
+    startMonth = forms.IntegerField(required=True)
+    startYear = forms.IntegerField(required=True)
+    endMonth = forms.IntegerField(required=False)
+    endYear = forms.IntegerField(required=False)
 
 
 class NewAccomplishmentForm(forms.Form):

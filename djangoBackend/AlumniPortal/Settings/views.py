@@ -264,7 +264,6 @@ class NewAccomplishmentView(View):
                 description = form.cleaned_data['description']
                 month = form.cleaned_data['month']
                 year = form.cleaned_data['year']
-                print("sdfkbashjklfgblihasfbvlhjkabsf")
                 with connection.cursor() as cursor:
                     cursor.execute(
                         f"INSERT INTO Accomplishments (rollNumber,title,body,month,year) VALUES ({user.username},'{title}','{description}',{month},{year});")
@@ -277,7 +276,35 @@ class NewAccomplishmentView(View):
 
 
 class NewExperienceView(View):
-    pass
+    def get(self, request):
+        return render(request, "insertExperience.html")
+
+    def post(self, request):
+        print("s;kdfjnvkjsdnvkjdnfsv")
+        if request.user.is_authenticated:
+            user = request.user
+            form = NewExperienceForm(request.POST)
+            if form.is_valid():
+                title = form.cleaned_data['title']
+                companyName = form.cleaned_data['companyName']
+
+                startMonth = form.cleaned_data['startMonth']
+                startYear = form.cleaned_data['startYear']
+                endMonth = form.cleaned_data['endMonth']
+                endYear = form.cleaned_data['endYear']
+
+                description = form.cleaned_data['description']
+
+                with connection.cursor() as cursor:
+                    cursor.execute(
+                        f"INSERT INTO Experiences (rollNumber,title,companyName,description,startMonth,startYear,endMonth,endYear) VALUES ({user.username},'{title}','{companyName}','{description}',{startMonth},{startYear},{endMonth},{endYear});")
+
+                return redirect("yourProfile")
+            else:
+                print(form.errors)
+                return HttpResponse(form.errors)
+        else:
+            return redirect("login")
 
 
 class editEducationView(View):
@@ -349,8 +376,70 @@ class editEducationView(View):
 
 
 class editExperienceView(View):
+    def get(self, request, experienceID):
+
+        if request.user.is_authenticated:
+            user = request.user
+            with connection.cursor() as cursor:
+                cursor.execute(
+                    f"select experienceID,rollNumber,title,companyName,description,startMonth,startYear,endMonth,endYear from Experiences where experienceID={experienceID};")
+                row = cursor.fetchone()
+                if int(user.username) != int(row[1]):
+                    return redirect("settings")
+                context = {
+                    'experienceID': row[0],
+                    'title': row[2],
+                    'companyName': row[3],
+                    'description': row[4],
+                    'startMonth': row[5],
+                    'startYear': row[6],
+                    'endMonth': row[7],
+                    'endYear': row[8],
+                }
+
+                return render(request, "editExperience.html", context)
+
+        else:
+            return redirect("login")
+
     def post(self, request, experienceID):
-        pass
+        if request.user.is_authenticated:
+            user = request.user
+            with connection.cursor() as cursor:
+                cursor.execute(
+                    f"select rollNumber from Experiences where experienceID={experienceID};")
+                row = cursor.fetchone()
+                if int(user.username) != int(row[0]):
+                    return redirect("settings")
+                form = NewExperienceForm(request.POST)
+                if form.is_valid():
+                    title = form.cleaned_data['title']
+                    companyName = form.cleaned_data['companyName']
+                    description = form.cleaned_data['description']
+                    startMonth = form.cleaned_data['startMonth']
+                    startYear = form.cleaned_data['startYear']
+                    endMonth = form.cleaned_data['endMonth']
+                    endYear = form.cleaned_data['endYear']
+
+                    cursor.execute(f"UPDATE Experiences SET title = '{title}' WHERE experienceID = {experienceID};")
+                    cursor.execute(
+                        f"UPDATE Experiences SET companyName = '{companyName}' WHERE experienceID = {experienceID};")
+                    cursor.execute(
+                        f"UPDATE Experiences SET description = '{description}' WHERE experienceID = {experienceID};")
+                    cursor.execute(
+                        f"UPDATE Experiences SET startMonth = {startMonth} WHERE experienceID = {experienceID};")
+                    cursor.execute(
+                        f"UPDATE Experiences SET startYear = '{startYear}' WHERE experienceID = {experienceID};")
+                    cursor.execute(
+                        f"UPDATE Experiences SET endMonth = '{endMonth}' WHERE experienceID = {experienceID};")
+                    cursor.execute(f"UPDATE Experiences SET endYear = '{endYear}' WHERE experienceID = {experienceID};")
+
+                    return redirect("settings")
+
+
+                else:
+                    print(form.errors)
+                    return redirect("editExperience", experienceID)
 
 
 class editAccomplishmentsView(View):
@@ -450,4 +539,16 @@ class deleteAccomplishmentView(View):
 
 class deleteExperienceView(View):
     def get(self, request, experienceID):
-        pass
+        if request.user.is_authenticated:
+            user = request.user
+            with connection.cursor() as cursor:
+                cursor.execute(
+                    "select rollNumber from Experiences where experienceID={}".format(experienceID))
+                row = cursor.fetchone()
+                if int(user.username) != int(row[0]):
+                    return redirect("settings")
+                else:
+                    cursor.execute("delete from Experiences where experienceID={}".format(experienceID))
+                    return redirect("settings")
+
+        return redirect("login")
