@@ -55,16 +55,17 @@ CREATE TABLE FirstLogin
 
 CREATE TABLE Accomplishments
 (
-    rollNumber INTEGER      NOT NULL,
-    title      VARCHAR(250) NOT NULL,
-    body       VARCHAR(2000),
-    month      INTEGER      NOT NULL,
-    year       INTEGER      NOT NULL,
+    accomplishmentID INTEGER      NOT NULL AUTO_INCREMENT,
+    rollNumber       INTEGER      NOT NULL,
+    title            VARCHAR(250) NOT NULL,
+    body             VARCHAR(2000),
+    month            INTEGER      NOT NULL,
+    year             INTEGER      NOT NULL,
 
     CONSTRAINT monthAccomplishmentsConstraint CHECK ( month >= 1 AND month <= 12 ),
     CONSTRAINT yearAccomplishmentsConstraint CHECK ( year >= 1950 AND year <= 2030),
 
-    PRIMARY KEY (rollNumber, title),
+    PRIMARY KEY (accomplishmentID),
     FOREIGN KEY (rollNumber) REFERENCES ProfileStatic (rollNumber) ON DELETE CASCADE
 );
 
@@ -92,6 +93,7 @@ CREATE TABLE Companies
 
 CREATE TABLE Education
 (
+    educationID  INTEGER      NOT NULL AUTO_INCREMENT,
     rollNumber   INTEGER      NOT NULL,
     degree       VARCHAR(250) NOT NULL,
     fieldOfStudy VARCHAR(250) DEFAULT ' ',
@@ -104,23 +106,24 @@ CREATE TABLE Education
     CONSTRAINT endYearEducationConstraint CHECK ( endYear >= 1950 AND endYear <= 2030),
 
     FOREIGN KEY (rollNumber) REFERENCES ProfileStatic (rollNumber) ON DELETE CASCADE,
-    PRIMARY KEY (rollNumber, degree, fieldOfStudy)
+    PRIMARY KEY (educationID)
 );
 
 CREATE TABLE Experiences
 (
-    rollNumber  INTEGER      NOT NULL,
-    title       VARCHAR(250) NOT NULL,
-    companyName VARCHAR(250) not null,
-    description VARCHAR(2000),
-    startMonth  INTEGER      NOT NULL,
-    startYear   INTEGER      NOT NULL,
-    endMonth    INTEGER DEFAULT NULL,
-    endYear     INTEGER DEFAULT NULL,
+    experienceID INTEGER      NOT NULL AUTO_INCREMENT,
+    rollNumber   INTEGER      NOT NULL,
+    title        VARCHAR(250) NOT NULL,
+    companyName  VARCHAR(250) not null,
+    description  VARCHAR(2000),
+    startMonth   INTEGER      NOT NULL,
+    startYear    INTEGER      NOT NULL,
+    endMonth     INTEGER DEFAULT NULL,
+    endYear      INTEGER DEFAULT NULL,
 
     FOREIGN KEY (rollNumber) REFERENCES ProfileStatic (rollNumber) ON DELETE CASCADE,
     -- FOREIGN KEY (companyName) REFERENCES Companies (name),
-    PRIMARY KEY (rollNumber, companyName, startMonth, startYear),
+    PRIMARY KEY (experienceID),
     CONSTRAINT startMonthJobConstraint CHECK ( startMonth >= 1 AND startMonth <= 12 ),
     CONSTRAINT endMonthJobConstraint CHECK ( endMonth >= 1 AND endMonth <= 12 )
 
@@ -129,10 +132,10 @@ CREATE TABLE Experiences
 
 CREATE TABLE Stories
 (
-    rollNumber INTEGER      NOT NULL,
-    title      VARCHAR(250) NOT NULL,
-    datePosted DATETIME     NOT NULL,
-    body       VARCHAR(2000)        NOT NULL,
+    rollNumber INTEGER       NOT NULL,
+    title      VARCHAR(250)  NOT NULL,
+    datePosted DATETIME      NOT NULL,
+    body       VARCHAR(2000) NOT NULL,
 
     FOREIGN KEY (rollNumber) REFERENCES ProfileStatic (rollNumber) ON DELETE CASCADE,
     PRIMARY KEY (rollNumber, title)
@@ -141,10 +144,10 @@ CREATE TABLE Stories
 
 CREATE TABLE Ideas
 (
-    rollNumber  INTEGER      NOT NULL,
-    title       VARCHAR(250) NOT NULL,
-    datePosted  DATETIME     NOT NULL,
-    description VARCHAR(2000)      NOT NULL,
+    rollNumber  INTEGER       NOT NULL,
+    title       VARCHAR(250)  NOT NULL,
+    datePosted  DATETIME      NOT NULL,
+    description VARCHAR(2000) NOT NULL,
     FOREIGN KEY (rollNumber) REFERENCES ProfileStatic (rollNumber) ON DELETE CASCADE,
     PRIMARY KEY (rollNumber, title)
 )

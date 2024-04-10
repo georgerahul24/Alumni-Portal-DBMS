@@ -24,7 +24,19 @@ urlpatterns = [
     path('socialmedia/', SocialMediaView.as_view()),
     path('password/', PasswordView.as_view(), name='about'),
     path('profiledetails/', ProfileView.as_view(), name='socialmedia'),
+
     path('newEducation/', NewEducationView.as_view(), name='newEducation'),
-    path('newAccomplishment/', NewAccomplishmentView.as_view(), name='newAccomplishment')
+    path('newAccomplishment/', NewAccomplishmentView.as_view(), name='newAccomplishment'),
+    path('newExperience/', NewExperienceView.as_view(), name='newExperience'),
+
+    path('editEducation/<int:educationID>', editEducationView.as_view(), name='editEducation'),
+    path('editAccomplishment/<int:accomplishmentID>', editAccomplishmentsView.as_view(), name='editAccomplishment'),
+    path('editExperience/<int:experienceID>', editExperienceView.as_view(), name='editExperience'),
+
+    path('deleteEducation/<int:educationID>', deleteEducationView.as_view(), name='deleteEducation'),
+    path('deleteAccomplishment/<int:accomplishmentID>', deleteEducationView.as_view(), name='deleteAccomplishment'),
+    path('deleteExperience/<int:experienceID>', deleteExperienceView.as_view(), name='deleteExperience'),
+
+
 
 ]

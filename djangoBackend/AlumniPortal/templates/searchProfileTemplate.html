@@ -174,10 +174,10 @@
                                 </div>{% endif %}
                             </div>
                             <div class="col-11 content-box" id="education">
-                                <h1 style="font-size: 25px;">Education</h1>{% for education in educations %}
+                                <h1 style="font-size: 25px;">Education</h1>
                                 <div class="detailsContainer">
                                     <h5 class="degreeAndYear">{{ education.instituteName }}</h5>
-                                    <h6 class="instituteName">{{ education.degree }} ( {{education.fieldOfStudy}} ) , {{ education.startYear}} - {{ education.endYear}}</h6>
+                                    <h6 class="instituteName">{{ educa{% for education in educations %}tion.degree }} ( {{education.fieldOfStudy}} ) , {{ education.startYear}} - {{ education.endYear}}</h6>
                                     <p class="educationDescription">{{education.description}}</p>
                                 </div>{% endfor %}
                             </div>
