@@ -133,26 +133,43 @@ class SearchResultsView(View):
             form = SearchBarForm(request.POST)
             if form.is_valid():
                 searchText = form.cleaned_data['searchText']
+                startYear = form.cleaned_data['startYear']
+                endYear = form.cleaned_data['endYear']
+                cse = form.cleaned_data['cse']
+                ece = form.cleaned_data['ece']
                 rows = []
+
+                queryConditions = ""
+                if startYear is not None:
+                    queryConditions += f" AND graduationYear >= {startYear}"
+                if endYear is not None:
+                    queryConditions += f" AND graduationYear <= {endYear}"
+                if cse and ece:
+                    pass
+                elif cse:
+                    queryConditions += f" AND department = 'Computer Science and Engineering' "
+                elif ece:
+                    queryConditions += f" AND department = 'Electronics and Communication Engineering' "
+
                 if searchText.isnumeric():
                     # Then this is a partial roll number
                     if len(searchText) != 7:
                         searchText += "0" * (7 - len(searchText))
                         with connection.cursor() as cursor:
                             cursor.execute(
-                                f"SELECT name,rollNumber,graduationYear,degree,department FROM profileStatic where rollNumber >= {searchText} ")
+                                f"SELECT name,rollNumber,graduationYear,degree,department FROM profileStatic where rollNumber >= {searchText} {queryConditions};")
                             rows = cursor.fetchall()
                     else:
                         with connection.cursor() as cursor:
                             cursor.execute(
-                                f"SELECT name,rollNumber,graduationYear,degree,department FROM profileStatic where rollNumber = {searchText} ")
+                                f"SELECT name,rollNumber,graduationYear,degree,department FROM profileStatic where rollNumber = {searchText} {queryConditions};")
                             rows = cursor.fetchall()
                 else:
                     # This is a string to search
                     # TODO: Try searching companies and institutes also
                     with connection.cursor() as cursor:
                         cursor.execute(
-                            f"SELECT name,rollNumber,graduationYear,degree,department FROM profileStatic where name like '%{searchText}%'")
+                            f"SELECT name,rollNumber,graduationYear,degree,department FROM profileStatic where name like '%{searchText}%' {queryConditions}")
                         rows = cursor.fetchall()
 
                 if len(rows) == 0:
