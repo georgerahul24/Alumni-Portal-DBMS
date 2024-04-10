@@ -34,7 +34,7 @@ urlpatterns = [
     path('editExperience/<int:experienceID>', editExperienceView.as_view(), name='editExperience'),
 
     path('deleteEducation/<int:educationID>', deleteEducationView.as_view(), name='deleteEducation'),
-    path('deleteAccomplishment/<int:accomplishmentID>', deleteEducationView.as_view(), name='deleteAccomplishment'),
+    path('deleteAccomplishment/<int:accomplishmentID>', deleteAccomplishmentView.as_view(), name='deleteAccomplishment'),
     path('deleteExperience/<int:experienceID>', deleteExperienceView.as_view(), name='deleteExperience'),
 
 

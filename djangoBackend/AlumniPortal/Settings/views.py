@@ -354,8 +354,65 @@ class editExperienceView(View):
 
 
 class editAccomplishmentsView(View):
+    def get(self, request, accomplishmentID):
+        if request.user.is_authenticated:
+            user = request.user
+            with connection.cursor() as cursor:
+                cursor.execute(
+                    f"select accomplishmentID,rollNumber,title,body,month,year from Accomplishments where accomplishmentID={accomplishmentID};")
+                row = cursor.fetchone()
+                if int(user.username) != int(row[1]):
+                    return redirect("settings")
+                context = {
+                    'accomplishmentID': row[0],
+                    'title': row[2],
+                    'body': row[3],
+                    'month': row[4],
+                    'year': row[5],
+                }
+
+                return render(request, "editAccomplismentDetails.html", context)
+
+        else:
+            return redirect("login")
+
     def post(self, request, accomplishmentID):
-        pass
+        if request.user.is_authenticated:
+            user = request.user
+            with connection.cursor() as cursor:
+                cursor.execute(
+                    f"select rollNumber from Accomplishments where accomplishmentID={accomplishmentID};")
+                row = cursor.fetchone()
+                if int(user.username) != int(row[0]):
+                    return redirect("settings")
+                form = NewAccomplishmentForm(request.POST)
+                if form.is_valid():
+                    title = form.cleaned_data['title']
+                    body = form.cleaned_data['description']
+                    month = form.cleaned_data['month']
+                    year = form.cleaned_data['year']
+
+                    cursor.execute(
+                        f"UPDATE Accomplishments SET title = '{title}' WHERE accomplishmentID = {accomplishmentID};")
+                    cursor.execute(
+                        f"UPDATE Accomplishments SET body = '{body}' WHERE accomplishmentID = {accomplishmentID};")
+                    cursor.execute(
+                        f"UPDATE Accomplishments SET month = {month} WHERE accomplishmentID = {accomplishmentID};")
+                    cursor.execute(
+                        f"UPDATE Accomplishments SET year = {year} WHERE accomplishmentID = {accomplishmentID};")
+
+                    return redirect("settings")
+
+
+                else:
+                    return redirect("editEducation", accomplishmentID)
+
+
+
+
+
+        else:
+            return redirect("login")
 
 
 class deleteEducationView(View):
@@ -371,12 +428,24 @@ class deleteEducationView(View):
                     cursor.execute("delete from Education where educationID={}".format(educationID))
                     return redirect("settings")
 
-    pass
+        return redirect("login")
 
 
 class deleteAccomplishmentView(View):
     def get(self, request, accomplishmentID):
-        pass
+        if request.user.is_authenticated:
+            user = request.user
+            with connection.cursor() as cursor:
+                cursor.execute(
+                    "select rollNumber from Accomplishments where accomplishmentID={}".format(accomplishmentID))
+                row = cursor.fetchone()
+                if int(user.username) != int(row[0]):
+                    return redirect("settings")
+                else:
+                    cursor.execute("delete from Accomplishments where accomplishmentID={}".format(accomplishmentID))
+                    return redirect("settings")
+
+        return redirect("login")
 
 
 class deleteExperienceView(View):

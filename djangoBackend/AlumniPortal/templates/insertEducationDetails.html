@@ -53,14 +53,14 @@
         <form method="post" action="{% url 'newEducation' %}">
 {%csrf_token%}
             <div class="form-row rowStyle">
-                <div class="col"><input class="form-control" type="text" name="degree" required="" value="{{ degree }}"><input class="form-control" type="text" name="fieldOfStudy" required="" value="{{ fieldOfStudy }}"><input class="form-control" type="text" name="instituteName" required="" value="{{ institute }}"></div>
+                <div class="col"><input class="form-control" type="text" name="degree" required="" value="{{ degree }}" placeholder="Degree"><input class="form-control" type="text" name="fieldOfStudy" required="" value="{{ fieldOfStudy }}" placeholder="Field Of Study"><input class="form-control" type="text" name="instituteName" required="" value="{{ institute }}" placeholder="Institute"></div>
             </div>
             <div class="form-row rowStyle">
                 <div class="col d-xl-flex justify-content-xl-center align-items-xl-center"><input class="form-control" type="number" placeholder="startYear" name="startYear" value="{{ startYear }}"><input class="form-control" type="number" placeholder="endYear" name="endYear" value="{{ endYear }}"></div>
             </div>
             <div class="form-row rowStyle">
                 <div class="col"><textarea class="form-control" placeholder="Description" name="description">{{ description }}</textarea></div>
-            </div><button class="btn btn-primary" type="submit">Update</button>
+            </div><button class="btn btn-primary" type="submit">Add</button>
         </form>
     </div>
 <script src="{% static 'assets/js/jquery.min.js' %}"></script>

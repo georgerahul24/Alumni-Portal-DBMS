@@ -50,17 +50,17 @@
                 </svg><i class="fa fa-caret-right d-none position-absolute"></i><span class="text-nowrap mx-2">Idea Corner</span></a></li>
     </ul>
     <div class="container d-lg-flex justify-content-lg-center align-items-lg-center" style="height: 650px;">
-        <form method="post" action="{% url 'newAccomplishment' %}">
+        <form method="post" action="{% url 'editAccomplishment' accomplishmentID=accomplishmentID %}">
 {%csrf_token%}
             <div class="form-row rowStyle">
-                <div class="col"><input class="form-control" type="text" placeholder="Title" name="title" required="" maxlength="100"></div>
+                <div class="col"><input class="form-control" type="text" placeholder="Title" name="title" required="" maxlength="100" value="{{ title }}"></div>
             </div>
             <div class="form-row rowStyle">
-                <div class="col d-xl-flex justify-content-xl-center align-items-xl-center"><input class="form-control" type="number" placeholder="Month" name="month" required=""><input class="form-control" type="number" placeholder="Year" name="year" required=""></div>
+                <div class="col d-xl-flex justify-content-xl-center align-items-xl-center"><input class="form-control" type="number" placeholder="Month" name="month" required="" value="{{ month }}"><input class="form-control" type="number" placeholder="Year" name="year" required="" value="{{ year }}"></div>
             </div>
             <div class="form-row rowStyle">
-                <div class="col"><textarea class="form-control" placeholder="Description" name="description"></textarea></div>
-            </div><button class="btn btn-primary" type="submit">Update</button><a class="btn btn-primary" role="button" style="background: var(--red);" href="{% url 'deleteEducation' educationID = education.educationID %}">Delete</a>
+                <div class="col"><textarea class="form-control" placeholder="Description" name="description">{{ body }}</textarea></div>
+            </div><button class="btn btn-primary" type="submit">Update</button><a class="btn btn-primary" role="button" style="background: var(--red);" href="{% url 'deleteAccomplishment' accomplishmentID=accomplishmentID %}">Delete</a>
         </form>
     </div>
 <script src="{% static 'assets/js/jquery.min.js' %}"></script>
