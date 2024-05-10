@@ -150,6 +150,11 @@ CREATE TABLE Ideas
     description VARCHAR(2000) NOT NULL,
     FOREIGN KEY (rollNumber) REFERENCES ProfileStatic (rollNumber) ON DELETE CASCADE,
     PRIMARY KEY (rollNumber, title)
-)
+);
 
-
+CREATE TABLE Donations
+(
+    rollNumber INTEGER NOT NULL,
+    amount     INTEGER NOT NULL,
+    PRIMARY KEY (rollNumber, amount)
+);

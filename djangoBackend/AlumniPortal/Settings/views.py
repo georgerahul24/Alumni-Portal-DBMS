@@ -280,7 +280,6 @@ class NewExperienceView(View):
         return render(request, "insertExperience.html")
 
     def post(self, request):
-        print("s;kdfjnvkjsdnvkjdnfsv")
         if request.user.is_authenticated:
             user = request.user
             form = NewExperienceForm(request.POST)

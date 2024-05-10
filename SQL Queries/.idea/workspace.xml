@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="25f4443f-0216-4daf-8de9-b994d7f8d70f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Table Structures.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Table Structures.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/Settings/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/Settings/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/templates/searchProfileTemplate.html" beforeDir="false" afterPath="$PROJECT_DIR$/../djangoBackend/AlumniPortal/templates/searchProfileTemplate.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
